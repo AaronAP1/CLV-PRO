@@ -1,7 +1,7 @@
 .sidebar {
-    background-color: #f8f9fa; /* Color de fondo similar al de la imagen */
-    min-height: 100vh; /* Altura completa */
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1); /* Sombra ligera a la derecha */
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
   }
   
   .sidebar .nav-link {
@@ -27,7 +27,6 @@
 .sidebar .nav-link.active svg {
   stroke: rgba(9, 138, 9, 0.692); /* Cambia el color de la línea del icono SVG */
 }
-
   
   /* Ajuste adicional para que la barra de navegación sea pegajosa */
   .position-sticky {
@@ -41,5 +40,13 @@
   main {
     padding-top: 1rem;
     padding-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      min-height: auto; /* Altura automática */
+      height: auto; /* Altura automática para asegurarse de que se aplique */
+      /* Otras posibles propiedades que podrías ajustar para móviles */
+    }
   }
   
