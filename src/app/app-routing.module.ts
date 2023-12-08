@@ -2,11 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './views/login/login.component';
 import { HomeComponent } from './views/home/home.component';
+import { PagosComponent } from './views/pagos/pagos.component';
+import { PagoRealizadoComponent } from './views/pago-realizado/pago-realizado.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
+   { path: 'pagos', component: PagosComponent },
+  { path: 'pago-realizado', component: PagoRealizadoComponent },
+  { path: '', redirectTo: '/pagos', pathMatch: 'full' } // Ruta predeterminada
+  
+
 ];
 
 @NgModule({
