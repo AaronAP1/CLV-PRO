@@ -11,7 +11,6 @@ export class LoginComponent {
   constructor(private router: Router) { }
 
   onLoginClick(): void {
-    console.log('Login button clicked');
     this.router.navigate(['home']);
   }
 
