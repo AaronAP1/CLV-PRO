@@ -1,0 +1,12 @@
+.navbar {
+  background-color: #437D28;
+  justify-content: space-between;
+  padding: 10px;
+}
+.navbar-logo {
+  height: 60px;
+  margin-left: 30px;
+}
+.navbar-user-icon {
+  height: 35px;
+}
