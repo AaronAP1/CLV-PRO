@@ -37,4 +37,10 @@ body{
 
 .green{
     color: #00b894 !important;
+    font-weight: bold;
+}
+
+.btn-success{
+    background-color: #437D28 !important;
+    border-color: #437D28 !important;
 }
