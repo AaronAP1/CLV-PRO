@@ -1,25 +1,40 @@
-.mt-top{ 
-    margin-top: 150px!important;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #ececec;
+}
+/*------------ Login container ------------*/
+.box-area{
+    width: 1130px;
+}
+/*------------ Right box ------------*/
+.right-box{
+    padding: 40px 30px 40px 40px;
+}
+/*------------ Custom Placeholder ------------*/
+::placeholder{
+    font-size: 16px;
+}
+.rounded-4{
+    border-radius: 20px;
+}
+.rounded-5{
+    border-radius: 30px;
+}
+/*------------ For small screens------------*/
+@media only screen and (max-width: 768px){
+     .box-area{
+        margin: 0 10px;
+     }
+     .left-box{
+        height: 100px;
+        overflow: hidden;
+     }
+     .right-box{
+        padding: 20px;
+     }
 }
 
-.black{
-    color: #000!important;
-}
-
-.background {
-    background-color: #f6e9cd !important;
-    width: 100%;
-    height: 100vh; /* vh significa viewport height, que es la altura de la pantalla del usuario */
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.background-2{
-    background-color: white !important;
-}
-
-.b-radius{
-    margin-top: 5px !important;
-    border-radius: 15px !important;
+.green{
+    color: #00b894 !important;
 }
