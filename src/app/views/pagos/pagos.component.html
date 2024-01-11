@@ -74,19 +74,30 @@
         </div>
     </div>
 
-    <script>
-        function exportToPDF() {
-            const element = document.getElementById("miTabla");
-            html2pdf(element);
-        }
 
-        function exportToExcel() {
-            const table = document.getElementById('miTabla');
-            const ws = XLSX.utils.table_to_sheet(table);
-            const wb = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(wb, ws, 'Cronograma_de_Pagos');
-            XLSX.writeFile(wb, 'cronograma_pagos.xlsx');
-        }
-    </script>
+<script>
+  function exportToExcel() {
+      // Selecciona la tabla por su ID
+      var table = document.getElementById('miTabla');
+
+      // Configuración de TableExport
+      var exportConfig = {
+          headers: true,                      // Incluir encabezados en la exportación
+          footers: true,                      // Incluir pies de página en la exportación
+          formats: ['xlsx'],                  // Formato de archivo a exportar (puedes agregar más)
+          filename: 'cronograma_pagos',      // Nombre del archivo sin extensión
+          bootstrap: true,                    // Utilizar estilos de Bootstrap
+          exportButtons: false                // No mostrar botones de exportación
+      };
+
+      // Inicializar TableExport con la configuración
+      var exporter = new TableExport(table, exportConfig);
+
+      // Generar la exportación
+      var exportData = exporter.getExportData()['miTabla']['xlsx'];
+      exporter.export2file(exportData.data, exportData.mimeType, exportData.filename, exportData.fileExtension);
+  }
+</script>
+
 </body>
 </html>
