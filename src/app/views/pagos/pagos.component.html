@@ -1,61 +1,92 @@
-<app-header></app-header>
-<div class="d-flex flex-column flex-md-row">
-    <app-sidebar></app-sidebar>
-    <div class="col-12 col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="container p-2 ">
-        <h3>Cronograma de Pagos</h3>
-        <div class="blanco mt-4 p-3 bg-white rounded-4 shadow">
-          <div class="table-responsive table-responsive-lg table-responsive-sm table-responsive-md table-responsive-xl">
-            <table class="table table-bordered text-center mt-2">
-              <thead class="table-secondary">
-                <tr>
-                  <th scope="col" class="header-text">Recibido</th>
-                  <th scope="col" class="header-text">Descripción</th>
-                  <th scope="col" class="header-text">Importe</th>
-                  <th scope="col" class="header-text">Vencimiento</th>
-                  <th scope="col" class="header-text">Estado</th>
-                  <th scope="col" class="header-text">Vencido</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>01/01/2023</td>
-                  <td>Pago de servicios</td>
-                  <td>$100.00</td>
-                  <td>05/01/2023</td>
-                  <td>Pendiente</td>
-                  <td>No</td>
-                </tr>
-                <tr>
-                  <td>01/01/2023</td>
-                  <td>Pago de servicios</td>
-                  <td>$100.00</td>
-                  <td>05/01/2023</td>
-                  <td>Pendiente</td>
-                  <td>No</td>
-                </tr>
-                <tr>
-                  <td>01/01/2023</td>
-                  <td>Pago de servicios</td>
-                  <td>$100.00</td>
-                  <td>05/01/2023</td>
-                  <td>Pendiente</td>
-                  <td>No</td>
-                </tr>
-                <tr>
-                  <td>01/01/2023</td>
-                  <td>Pago de servicios</td>
-                  <td>$100.00</td>
-                  <td>05/01/2023</td>
-                  <td>Pendiente</td>
-                  <td>No</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://html2pdf.zeno.ro/html2pdf.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+    <title>Tu Aplicación</title>
+</head>
+<body>
+    <app-header></app-header>
+    <div class="d-flex flex-column flex-md-row">
+        <app-sidebar></app-sidebar>
+        <div class="col-12 col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="container p-2">
+                <h3>Cronograma de Pagos</h3>
+                <div class="blanco mt-4 p-3 bg-white rounded-4 shadow">
+                    <div class="table-responsive table-responsive-lg table-responsive-sm table-responsive-md table-responsive-xl">
+                        <table id="miTabla" class="table table-bordered text-center mt-2">
+                            <thead class="table-secondary">
+                                <tr>
+                                    <th scope="col" class="header-text">Recibido</th>
+                                    <th scope="col" class="header-text">Descripción</th>
+                                    <th scope="col" class="header-text">Importe</th>
+                                    <th scope="col" class="header-text">Vencimiento</th>
+                                    <th scope="col" class="header-text">Estado</th>
+                                    <th scope="col" class="header-text">Vencido</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/01/2023</td>
+                                    <td>Pago de servicios</td>
+                                    <td>$100.00</td>
+                                    <td>05/01/2023</td>
+                                    <td>Pendiente</td>
+                                    <td>No</td>
+                                </tr>
+                                <tr>
+                                  <td>01/01/2023</td>
+                                  <td>Pago de servicios</td>
+                                  <td>$100.00</td>
+                                  <td>05/01/2023</td>
+                                  <td>Pendiente</td>
+                                  <td>No</td>
+                              </tr>
+                              <tr>
+                                <td>01/01/2023</td>
+                                <td>Pago de servicios</td>
+                                <td>$100.00</td>
+                                <td>05/01/2023</td>
+                                <td>Pendiente</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                              <td>01/01/2023</td>
+                              <td>Pago de servicios</td>
+                              <td>$100.00</td>
+                              <td>05/01/2023</td>
+                              <td>Pendiente</td>
+                              <td>No</td>
+                          </tr>
+                                <!-- Otras filas de datos -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Botones para exportar a PDF y Excel dentro del mismo contenedor que la tabla -->
+                <button onclick="exportToPDF()">Exportar a PDF</button>
+                <button onclick="exportToExcel()">Exportar a Excel</button>
+            </div>
         </div>
-      </div>
     </div>
-</div>
 
+    <script>
+        function exportToPDF() {
+            const element = document.getElementById("miTabla");
+            html2pdf(element);
+        }
 
+        function exportToExcel() {
+            const table = document.getElementById('miTabla');
+            const ws = XLSX.utils.table_to_sheet(table);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'Cronograma_de_Pagos');
+            XLSX.writeFile(wb, 'cronograma_pagos.xlsx');
+        }
+    </script>
+</body>
+</html>
