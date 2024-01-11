@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./pagos.component.css']
 })
 export class PagosComponent {
+  exportToPDF: any;
+  exportToExcel: any;
 
 }

@@ -26,30 +26,6 @@
                 <td>Pendiente</td>
                 <td>No</td>
               </tr>
-              <tr>
-                <td>01/01/2023</td>
-                <td>Pago de servicios</td>
-                <td>$100.00</td>
-                <td>05/01/2023</td>
-                <td>Pendiente</td>
-                <td>No</td>
-              </tr>
-              <tr>
-                <td>01/01/2023</td>
-                <td>Pago de servicios</td>
-                <td>$100.00</td>
-                <td>05/01/2023</td>
-                <td>Pendiente</td>
-                <td>No</td>
-              </tr>
-              <tr>
-                <td>01/01/2023</td>
-                <td>Pago de servicios</td>
-                <td>$100.00</td>
-                <td>05/01/2023</td>
-                <td>Pendiente</td>
-                <td>No</td>
-              </tr>
               <!-- Otras filas de datos -->
             </tbody>
           </table>
@@ -57,33 +33,12 @@
       </div>
 
       <!-- Botones para exportar a PDF y Excel dentro del mismo contenedor que la tabla -->
-      <button class="btn btn-danger mt-3" onclick="getElementById('exportToPDFBtn')">
+      <button id="exportToPDFBtn" class="btn btn-danger mt-3">
         <i class="bi bi-file-earmark-pdf"></i> Exportar a PDF
       </button>
-      <button class="btn btn-success ms-2 mt-3" onclick="getElementById('exportToExcelBtn')">
+      <button id="exportToExcelBtn" class="btn btn-success ms-2 mt-3">
         <i class="bi bi-file-earmark-excel"></i> Exportar a Excel
       </button>
     </div>
   </div>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById("exportToPDFBtn").addEventListener("click", exportToPDF);
-    document.getElementById("exportToExcelBtn").addEventListener("click", exportToExcel);
-
-    function exportToPDF() {
-      console.log("exportToPDF");
-      const element = document.getElementById("miTabla");
-      html2pdf(element);
-    }
-
-    function exportToExcel() {
-      const table = document.getElementById('miTabla');
-      const ws = XLSX.utils.table_to_sheet(table);
-      const wb = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(wb, ws, 'Cronograma_de_Pagos');
-      XLSX.writeFile(wb, 'cronograma_pagos.xlsx');
-    }
-  });
-</script>
