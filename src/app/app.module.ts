@@ -12,6 +12,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { DatosclienteComponent } from './views/datoscliente/datoscliente.component';
 import { Sidebar2Component } from './components/sidebar2/sidebar2.component';
 import { DatoscontratoComponent } from './views/datoscontrato/datoscontrato.component';
+import { FooterComponent } from './views/paginaprincipal/footer/footer.component';
+import { MainComponent } from './views/paginaprincipal/main/main.component';
+import { NavbarComponent } from './views/paginaprincipal/navbar/navbar.component';
+import { LandingComponent } from './views/paginaprincipal/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { DatoscontratoComponent } from './views/datoscontrato/datoscontrato.comp
     HeaderComponent,
     DatosclienteComponent,
     Sidebar2Component,
-    DatoscontratoComponent
+    DatoscontratoComponent,
+    FooterComponent,
+    MainComponent,
+    NavbarComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

@@ -6,9 +6,12 @@ import { PagosComponent } from './views/pagos/pagos.component';
 import { PagoRealizadoComponent } from './views/pago-realizado/pago-realizado.component';
 import { DatosclienteComponent } from './views/datoscliente/datoscliente.component';
 import { DatoscontratoComponent } from './views/datoscontrato/datoscontrato.component';
+import { LandingComponent } from './views/paginaprincipal/landing/landing.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+
+  { path: '', redirectTo: '/landing', pathMatch: 'full' },
+  { path: 'landing', component: LandingComponent},
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'pagos', component: PagosComponent },

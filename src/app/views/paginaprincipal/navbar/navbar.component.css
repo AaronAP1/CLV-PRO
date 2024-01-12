@@ -1,0 +1,16 @@
+.fondo_nav {
+    background-color: #198754 !important;
+    font-family: 'Wix Madefor Text', sans-serif;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #ddd6d6e5 !important;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: white !important;
+    font-weight: bold;
+}
+
