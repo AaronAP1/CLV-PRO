@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-datoscliente',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./datoscliente.component.css']
 })
 export class DatosclienteComponent {
+
+  constructor(private router: Router) { }
+
+  onLoginClick(): void {
+    this.router.navigate(['pagos']);
+  }
 
 }
