@@ -9,6 +9,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PagosComponent } from './views/pagos/pagos.component';
 import { PagoRealizadoComponent } from './views/pago-realizado/pago-realizado.component';
 import { HeaderComponent } from './components/header/header.component';
+import { DatosclienteComponent } from './views/datoscliente/datoscliente.component';
+import { Sidebar2Component } from './components/sidebar2/sidebar2.component';
+import { DatoscontratoComponent } from './views/datoscontrato/datoscontrato.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { HeaderComponent } from './components/header/header.component';
     SidebarComponent,
     PagosComponent,
     PagoRealizadoComponent,
-    HeaderComponent
+    HeaderComponent,
+    DatosclienteComponent,
+    Sidebar2Component,
+    DatoscontratoComponent
   ],
   imports: [
     BrowserModule,

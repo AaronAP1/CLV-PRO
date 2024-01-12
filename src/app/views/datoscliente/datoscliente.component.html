@@ -1,0 +1,91 @@
+<app-header></app-header>
+
+<div class="d-flex flex-column flex-md-row">
+    <app-sidebar2></app-sidebar2>
+    <div class="col-12 col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="container">
+            <h1 class="mt-4">Datos del Cliente</h1>
+
+            <form>
+                <div class="row">
+                    <!-- Columna 1 -->
+                    <div class="col-12 col-md-6">
+                        <div class="mb-3 mt-4">
+                            <label for="codigoPago" class="form-label">Código de Pago:</label>
+                            <input type="text" class="form-control" id="codigoPago" name="codigoPago" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="nombres" class="form-label">Nombres:</label>
+                            <input type="text" class="form-control" id="nombres" name="nombres" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="apellidoPaterno" class="form-label">Apellido Paterno:</label>
+                            <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="apellidoMaterno" class="form-label">Apellido Materno:</label>
+                            <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="direccion" class="form-label">Dirección:</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion" required>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="doc" class="form-label">DOC:</label>
+                                <input type="text" class="form-control" id="doc" name="doc" required>
+                            </div>
+
+                            <div class="col-6 mb-3">
+                                <label for="numero" class="form-label">Número:</label>
+                                <input type="text" class="form-control" id="numero" name="numero" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna 2 -->
+                    <div class="col-12 col-md-6 mt-4">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="distrito" class="form-label">Distrito:</label>
+                            <input type="text" class="form-control" id="distrito" name="distrito" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="asesor" class="form-label">Asesor:</label>
+                            <input type="text" class="form-control" id="asesor" name="asesor" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="mzlts" class="form-label">MZLTS:</label>
+                            <input type="text" class="form-control" id="mzlts" name="mzlts" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="captacion" class="form-label">Captación:</label>
+                            <input type="text" class="form-control" id="captacion" name="captacion" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="celular" class="form-label">Celular:</label>
+                            <input type="tel" class="form-control" id="celular" name="celular" required>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success">Guardar Datos</button>
+            </form>
+        </div>
+    </div>
+</div>
