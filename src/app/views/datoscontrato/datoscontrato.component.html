@@ -1,44 +1,71 @@
 <app-header></app-header>
-<div class="d-flex flex-column flex-md-row">
-  <app-sidebar2></app-sidebar2>
-  <div class="col-12 col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="container p-2">
-      <h3>Datos del Contrato</h3>
-      <div class="blanco mt-4 p-3 bg-white rounded-4 shadow">
-        <div class="table-responsive table-responsive-lg table-responsive-sm table-responsive-md table-responsive-xl">
-          <table id="miTabla" class="table table-bordered text-center mt-2">
-            <thead class="table-secondary">
-              <tr>
-                <th scope="col" class="header-text">Recibido</th>
-                <th scope="col" class="header-text">Descripción</th>
-                <th scope="col" class="header-text">Importe</th>
-                <th scope="col" class="header-text">Vencimiento</th>
-                <th scope="col" class="header-text">Estado</th>
-                <th scope="col" class="header-text">Vencido</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>01/01/2023</td>
-                <td>Pago de servicios</td>
-                <td>$100.00</td>
-                <td>05/01/2023</td>
-                <td>Pendiente</td>
-                <td>No</td>
-              </tr>
-              <!-- Otras filas de datos -->
-            </tbody>
-          </table>
-        </div>
-      </div>
 
-      <!-- Botones para exportar a PDF y Excel dentro del mismo contenedor que la tabla -->
-      <button id="exportToPDFBtn" class="btn btn-danger mt-3">
-        <i class="bi bi-file-earmark-pdf"></i> Exportar a PDF
-      </button>
-      <button id="exportToExcelBtn" class="btn btn-success ms-2 mt-3">
-        <i class="bi bi-file-earmark-excel"></i> Exportar a Excel
-      </button>
+<div class="d-flex flex-column flex-md-row">
+    <app-sidebar2></app-sidebar2>
+    <div class="col-12 col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="container">
+            <h1 class="mt-4">Formulario de Datos del Contrato</h1>
+
+            <form>
+                <div class="row">
+                    <!-- Columna 1 -->
+                    <div class="col-12 col-md-6">
+                        <!-- M2 -->
+                        <div class="mb-3 mt-4">
+                            <label for="m2" class="form-label">M2:</label>
+                            <input type="text" class="form-control" id="m2" name="m2" required>
+                        </div>
+
+                        <!-- Pago Inicial -->
+                        <div class="mb-3">
+                            <label for="pagoInicial" class="form-label">Pago Inicial:</label>
+                            <input type="text" class="form-control" id="pagoInicial" name="pagoInicial" required>
+                        </div>
+
+                        <!-- Precio Venta -->
+                        <div class="mb-3">
+                            <label for="precioVenta" class="form-label">Precio Venta:</label>
+                            <input type="text" class="form-control" id="precioVenta" name="precioVenta" required>
+                        </div>
+
+                        <!-- Inicial -->
+                        <div class="mb-3">
+                            <label for="inicial" class="form-label">Inicial:</label>
+                            <input type="text" class="form-control" id="inicial" name="inicial" required>
+                        </div>
+                    </div>
+
+                    <!-- Columna 2 -->
+                    <div class="col-12 col-md-6 mt-4">
+                        <!-- Saldo -->
+                        <div class="mb-3">
+                            <label for="saldo" class="form-label">Saldo:</label>
+                            <input type="text" class="form-control" id="saldo" name="saldo" required>
+                        </div>
+
+                        <!-- Cuotas -->
+                        <div class="mb-3">
+                            <label for="cuotas" class="form-label">Cuotas:</label>
+                            <input type="text" class="form-control" id="cuotas" name="cuotas" required>
+                        </div>
+
+                        <!-- Cuota Mensual -->
+                        <div class="mb-3">
+                            <label for="cuotaMensual" class="form-label">Cuota Mensual:</label>
+                            <input type="text" class="form-control" id="cuotaMensual" name="cuotaMensual" required>
+                        </div>
+
+                        <!-- Comentarios -->
+                        <div class="mb-3">
+                            <label for="comentarios" class="form-label">Comentarios:</label>
+                            <textarea class="form-control" id="comentarios" name="comentarios" rows="3"
+                                required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success">Guardar Datos</button>
+            </form>
+        </div>
     </div>
-  </div>
 </div>
