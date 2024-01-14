@@ -16,6 +16,8 @@ import { FooterComponent } from './views/paginaprincipal/footer/footer.component
 import { MainComponent } from './views/paginaprincipal/main/main.component';
 import { NavbarComponent } from './views/paginaprincipal/navbar/navbar.component';
 import { LandingComponent } from './views/paginaprincipal/landing/landing.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { LandingComponent } from './views/paginaprincipal/landing/landing.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

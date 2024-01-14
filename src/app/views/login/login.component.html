@@ -1,41 +1,38 @@
 <body>
-    <!----------------------- Main Container -------------------------->
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <!----------------------- Login Container -------------------------->
         <div class="row border rounded-5 p-3 bg-white shadow box-area">
-            <!--------------------------- Left Box ----------------------------->
             <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
                 style="background: #437D28;">
                 <div class="featured-image mb-2">
                     <img src="assets/img/logo_empresa.png" class="img-fluid rounded-4" style="width: 500px;">
                 </div>
-                <!-- <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">¡Unete a Nosotros!</p> -->
             </div>
-            <!-------------------- ------ Right Box ---------------------------->
+
 
             <div class="col-md-6 right-box">
                 <div class="row align-items-center">
                     <div class="header-text mb-4">
                         <h2>¡Bienvenido de Nuevo!</h2>
-                        <p class="mt-3">¿No tienes una cuenta? <a class="green" href=""><span>Registrarte</span></a></p>
+
                     </div>
-                    <div class="input-group mb-3">  
-                        <input type="text" class="form-control form-control-lg bg-light fs-6"
-                            placeholder="Correo">
+
+                    <div class="input-group mb-3">
+                        <input type="text" [(ngModel)]="numero" class="form-control form-control-lg bg-light fs-6"
+                            placeholder="DNI">
                     </div>
                     <div class="input-group mb-1">
-                        <input type="password" class="form-control form-control-lg bg-light fs-6"
-                            placeholder="Contraseña">
+                        <input type="text" [(ngModel)]="codigoPago" class="form-control form-control-lg bg-light fs-6"
+                            placeholder="CODIGO DE PAGO">
                     </div>
+
                     <div class="input-group mb-5 d-flex justify-content-center">
                         <div class="forgot mt-4">
-                            <small><a class="green" href="#">¿Olvidaste tu contraseña?</a></small>
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <button type="button" class="btn btn-lg btn-success w-100 fs-6 rounded-5" (click)="onLoginClick()">Login</button>
+                        <button type="button" class="btn btn-lg btn-success w-100 fs-6 rounded-5"
+                            (click)="onLoginClick()">Login</button>
                     </div>
-                    
                 </div>
             </div>
         </div>
