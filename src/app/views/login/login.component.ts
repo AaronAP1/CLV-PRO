@@ -31,6 +31,7 @@ export class LoginComponent {
           const codigoPago = response?.codigo_pago; 
           if (codigoPago) {
             console.log('Código de Pago obtenido:', codigoPago);
+            console.log('Enviando código de pago a la ruta datoscliente:', codigoPago);
             this.router.navigate(['/datoscliente'], { state: { codigoPago } });
           } else {
             console.error('No se recibió el código de pago en la respuesta del servidor.');
