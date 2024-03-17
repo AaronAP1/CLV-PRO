@@ -13,25 +13,29 @@
                         
                         <div class="mb-3 mt-4">
                             <label for="m2" class="form-label">M2:</label>
-                            <input type="text" class="form-control" id="m2" name="m2" required>
+                            <input type="text" class="form-control" id="m2" name="m2" required
+                            [(ngModel)]="datosCliente.M2" disabled>
                         </div>
 
                         
                         <div class="mb-3">
                             <label for="pagoInicial" class="form-label">Pago Inicial:</label>
-                            <input type="text" class="form-control" id="pagoInicial" name="pagoInicial" required>
+                            <input type="text" class="form-control" id="pagoInicial" name="pagoInicial" required
+                            [(ngModel)]="datosCliente.INICIAL" disabled>
                         </div>
 
                        
                         <div class="mb-3">
                             <label for="precioVenta" class="form-label">Precio Venta:</label>
-                            <input type="text" class="form-control" id="precioVenta" name="precioVenta" required>
+                            <input type="text" class="form-control" id="precioVenta" name="precioVenta" required
+                            [(ngModel)]="datosCliente.PRECIOVENTA" disabled>
                         </div>
 
                         
                         <div class="mb-3">
                             <label for="inicial" class="form-label">Inicial:</label>
-                            <input type="text" class="form-control" id="inicial" name="inicial" required>
+                            <input type="text" class="form-control" id="inicial" name="inicial" required
+                            [(ngModel)]="datosCliente.INICIAL" disabled>
                         </div>
                     </div>
 
@@ -40,26 +44,30 @@
                         
                         <div class="mb-3">
                             <label for="saldo" class="form-label">Saldo:</label>
-                            <input type="text" class="form-control" id="saldo" name="saldo" required>
+                            <input type="text" class="form-control" id="saldo" name="saldo" required
+                            [(ngModel)]="datosCliente.SALDO" disabled>
                         </div>
 
                        
                         <div class="mb-3">
                             <label for="cuotas" class="form-label">Cuotas:</label>
-                            <input type="text" class="form-control" id="cuotas" name="cuotas" required>
+                            <input type="text" class="form-control" id="cuotas" name="cuotas" required
+                            [(ngModel)]="datosCliente.CUOTAS" disabled>
                         </div>
 
                        
                         <div class="mb-3">
                             <label for="cuotaMensual" class="form-label">Cuota Mensual:</label>
-                            <input type="text" class="form-control" id="cuotaMensual" name="cuotaMensual" required>
+                            <input type="text" class="form-control" id="cuotaMensual" name="cuotaMensual" required
+                            [(ngModel)]="datosCliente.CUOTA" disabled>
                         </div>
 
                        
                         <div class="mb-3">
                             <label for="comentarios" class="form-label">Comentarios:</label>
                             <textarea class="form-control" id="comentarios" name="comentarios" rows="3"
-                                required></textarea>
+                                required
+                                [(ngModel)]="datosCliente.COMENTARIO" disabled></textarea>
                         </div>
                     </div>
                 </div>

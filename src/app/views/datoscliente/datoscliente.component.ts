@@ -8,19 +8,17 @@ import { DatosClienteService } from 'src/app/api/datos_cliente.service';
   styleUrls: ['./datoscliente.component.css']
 })
 export class DatosclienteComponent implements OnInit {
-  datosCliente: any = {}; // Inicializar como objeto vacío
+  datosCliente: any = {}; 
   codigoPago: string = '';  
 
   constructor(private router: Router, private datosClienteService: DatosClienteService) { }
 
   ngOnInit(): void {
-    const navigation = window.history.state;
-    if (navigation && navigation.codigoPago) {
-      this.codigoPago = navigation.codigoPago;
-      console.log('Código de pago recibido:', this.codigoPago); 
-      this.obtenerDatosCliente(); // Llama directamente al método sin setTimeout
-    } else {
-      console.error('No se recibió el código de pago en la ruta.');
+    this.codigoPago = localStorage.getItem('codigoPago') || '';
+    if (this.codigoPago) {
+      console.log('Código de pago obtenido del localStorage:', this.codigoPago);
+      this.obtenerDatosCliente(); 
+      console.error('Código de pago no obtenido del localStorage.');
     }
   }
 
@@ -28,8 +26,11 @@ export class DatosclienteComponent implements OnInit {
     this.datosClienteService.obtenerDatosCliente(this.codigoPago).subscribe({
       next: (response: any[]) => {
         if (response && response.length > 0) {
-          this.datosCliente = response[0]; // Seleccionar el primer objeto del array
+          this.datosCliente = response[0]; 
           console.log('Datos del cliente:', this.datosCliente);
+
+          // Guardar los datos del cliente en el localStorage
+          localStorage.setItem('datosCliente', JSON.stringify(this.datosCliente));
         } else {
           console.error('No se encontraron datos del cliente.');
         }
