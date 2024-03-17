@@ -12,7 +12,7 @@ export class LoginComponent {
   password: string = '';
   loginError: string = '';
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router) {}
 
   onLoginClick(): void {
     console.log('Botón de login clickeado');
@@ -28,12 +28,18 @@ export class LoginComponent {
       this.loginService.login(this.email, this.password).subscribe({
         next: response => {
           console.log('Respuesta del servidor:', response);
-          this.router.navigate(['/datoscliente']);
+          const codigoPago = response?.codigo_pago; 
+          if (codigoPago) {
+            console.log('Código de Pago obtenido:', codigoPago);
+            this.router.navigate(['/datoscliente'], { state: { codigoPago } });
+          } else {
+            console.error('No se recibió el código de pago en la respuesta del servidor.');
+            this.loginError = 'Error al iniciar sesión. No se recibió el código de pago.';
+          }
         },
         error: (error: any) => {
           console.error('Error en el login:', error);
           this.loginError = 'Error al iniciar sesión. Verifica tus credenciales.';
-          // this.router.navigate(['/datoscliente']);
         }
       });
     } else {
