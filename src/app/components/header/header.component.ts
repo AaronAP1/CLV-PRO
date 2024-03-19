@@ -14,6 +14,8 @@ export class HeaderComponent {
   }
 
   onLoginClick2(): void{
+    localStorage.removeItem('datosCliente');
+    localStorage.removeItem('codigoPago');
     this.router.navigate(['login']);
   }
 

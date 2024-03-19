@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CobrosService } from 'src/app/api/cobros.service';
 
 @Component({
@@ -7,42 +8,62 @@ import { CobrosService } from 'src/app/api/cobros.service';
   styleUrls: ['./pagos.component.css']
 })
 export class PagosComponent implements OnInit {
-  datosCliente: any = {};
   cobros: any[] = [];
+  paginaActual = 1;
+  registrosPorPagina = 10;
+  codigoPago: string = ''; 
 
-  constructor(private cobrosService: CobrosService) { }
+  constructor(private router: Router, private cobrosService: CobrosService) { }
 
   ngOnInit(): void {
-    // Obtener el código de pago del localStorage
-    const codigoPago = localStorage.getItem('codigoPago');
-    if (codigoPago) {
-      console.log('Código de pago obtenido del localStorage en PagosComponent:', codigoPago);
-      
-      // Llamar al servicio para obtener los cobros
-      this.obtenerCobros(codigoPago);
-    } else {
-      console.error('Código de pago no encontrado en el localStorage en PagosComponent.');
-    }
+    this.codigoPago = localStorage.getItem('codigoPago') || '';
+    console.log('Código de pago obtenido del localStorage:', this.codigoPago);
 
-    // Obtener los datos del cliente del localStorage si es necesario
-    const datosClienteString = localStorage.getItem('datosCliente');
-    if (datosClienteString) {
-      this.datosCliente = JSON.parse(datosClienteString);
-      console.log('Datos del cliente obtenidos del localStorage en PagosComponent:', this.datosCliente);
+    if (this.codigoPago) {
+      this.obtenerCobros(this.codigoPago); 
     } else {
-      console.error('Datos del cliente no encontrados en el localStorage en PagosComponent.');
+      console.error('Código de pago no obtenido del localStorage.');
     }
   }
 
   obtenerCobros(codigoPago: string): void {
     this.cobrosService.obtenercobros(codigoPago).subscribe({
       next: (response: any) => {
-        this.cobros = response; 
+        this.cobros = response;
         console.log('Cobros obtenidos:', this.cobros);
       },
       error: (error: any) => {
         console.error('Error al obtener los cobros:', error);
       }
     });
+  }
+
+  get totalPaginas(): number {
+    return Math.ceil(this.cobros.length / this.registrosPorPagina);
+  }
+
+  get paginas(): number[] {
+    const paginas: number[] = [];
+    for (let i = 1; i <= this.totalPaginas; i++) {
+      paginas.push(i);
+    }
+    return paginas;
+  }
+
+  get cobrosPaginados(): any[] {
+    const inicio = (this.paginaActual - 1) * this.registrosPorPagina;
+    const fin = inicio + this.registrosPorPagina;
+    return this.cobros.slice(inicio, fin);
+  }
+
+  irPagina(pagina: number): void {
+    if (pagina >= 1 && pagina <= this.totalPaginas) {
+      this.paginaActual = pagina;
+    }
+  }
+
+  onLogoutClick(): void {
+    localStorage.removeItem('codigoPago');
+    this.router.navigate(['login']); 
   }
 }

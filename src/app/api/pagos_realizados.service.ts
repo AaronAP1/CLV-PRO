@@ -10,7 +10,7 @@ export class PagosRealizadosService {
 
   constructor(private http: HttpClient) { }
 
-  obtenercobros(codigoPago: string): Observable<any> {
+  obtenerpagosrealizados(codigoPago: string): Observable<any> {
     const url = `${this.apiUrl}${codigoPago}`;
     return this.http.get<any>(url);
   }
