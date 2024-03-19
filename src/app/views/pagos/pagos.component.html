@@ -22,7 +22,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let cobro of cobrosPaginados; let i = index">
-                <td>{{ i + 1 }}</td> <!-- Numeración empezando desde 1 -->
+                <td>{{ i + 1 }}</td> 
                 <td>{{ cobro.FECHA_EMICION_RECIBO | date: 'dd/MM/yyyy' }}</td>
                 <td>{{ cobro.DESCRIPCION_COBRO_REALIZAR }}</td>
                 <td>{{ cobro.IMPORTE_COBRO_COMPLETO }}</td>

@@ -8,10 +8,10 @@ import { PagosRealizadosService } from 'src/app/api/pagos_realizados.service';
   styleUrls: ['./pago-realizado.component.css']
 })
 export class PagoRealizadoComponent implements OnInit {
-
-  pagosRealizados: any = {};
   cobros: any[] = [];
-  codigoPago: string = '';  
+  paginaActual = 1;
+  registrosPorPagina = 10;
+  codigoPago: string = '';
 
   constructor(private router: Router, private cobrosService: PagosRealizadosService) { }
 
@@ -20,7 +20,7 @@ export class PagoRealizadoComponent implements OnInit {
     console.log('Código de pago obtenido del localStorage:', this.codigoPago);
 
     if (this.codigoPago) {
-      this.obtenerpagosrealizados(this.codigoPago); 
+      this.obtenerpagosrealizados(this.codigoPago);
     } else {
       console.error('Código de pago no obtenido del localStorage.');
     }
@@ -29,7 +29,7 @@ export class PagoRealizadoComponent implements OnInit {
   obtenerpagosrealizados(codigoPago: string): void {
     this.cobrosService.obtenerpagosrealizados(codigoPago).subscribe({
       next: (response: any) => {
-        this.cobros = response; 
+        this.cobros = response;
         console.log('Cobros obtenidos:', this.cobros);
       },
       error: (error: any) => {
@@ -38,11 +38,32 @@ export class PagoRealizadoComponent implements OnInit {
     });
   }
 
-  onLogoutClick(): void {
-    localStorage.removeItem('codigoPago');
-    this.router.navigate(['login']); 
+  get totalPaginas(): number {
+    return Math.ceil(this.cobros.length / this.registrosPorPagina);
   }
 
+  get paginas(): number[] {
+    const paginas: number[] = [];
+    for (let i = 1; i <= this.totalPaginas; i++) {
+      paginas.push(i);
+    }
+    return paginas;
+  }
 
+  get cobrosPaginados(): any[] {
+    const inicio = (this.paginaActual - 1) * this.registrosPorPagina;
+    const fin = inicio + this.registrosPorPagina;
+    return this.cobros.slice(inicio, fin);
+  }
 
+  irPagina(pagina: number): void {
+    if (pagina >= 1 && pagina <= this.totalPaginas) {
+      this.paginaActual = pagina;
+    }
+  }
+
+  onLogoutClick(): void {
+    localStorage.removeItem('codigoPago');
+    this.router.navigate(['login']);
+  }
 }
