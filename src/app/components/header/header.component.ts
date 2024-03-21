@@ -10,7 +10,7 @@ export class HeaderComponent {
   constructor(private router: Router) { }
 
   onLoginClick(): void {
-    this.router.navigate(['home']);
+    this.router.navigate(['datoscliente']);
   }
 
   onLoginClick2(): void{
