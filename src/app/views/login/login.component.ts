@@ -20,7 +20,7 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
-    this.loginError = '';
+    this.loginError = ''; // Limpiar el mensaje de error
 
     console.log('Datos enviados por el Login:', { email: this.email, password: this.password });
 
