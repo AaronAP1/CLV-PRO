@@ -7,13 +7,12 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBthbNlaq-2_0TeAc_e4fhPIzsdx6LkkGg",
-  authDomain: "clv-back.firebaseapp.com",
-  projectId: "clv-back",
-  storageBucket: "clv-back.appspot.com",
-  messagingSenderId: "779393555611",
-  appId: "1:779393555611:web:c5597e38c512681f1aba3e",
-  measurementId: "G-ZTCLX96SP7"
+  apiKey: "AIzaSyB17CunZ5GW6smtGWC4f07S5wbqCheGk7g",
+  authDomain: "clvpro.firebaseapp.com",
+  projectId: "clvpro",
+  storageBucket: "clvpro.appspot.com",
+  messagingSenderId: "815242604076",
+  appId: "1:815242604076:web:874083fdaa8f8614752b89"
 };
 
 // Initialize Firebase
