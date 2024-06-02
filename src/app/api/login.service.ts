@@ -6,18 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = 'https://clvproject-production.up.railway.app/auth/loging'; //
+  private apiUrl = 'http://localhost:8090/auth/loging'; //
 
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string, codigopagoL: string): Observable<any> {
     const loginData = { email, password, codigopagoL };
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      // Opcional: Aquí puedes incluir tu token de autorización si es necesario
-      // 'Authorization': `Bearer ${yourJWTToken}`
-    });
 
-    return this.http.post<any>(this.apiUrl, loginData, { headers });
+    return this.http.post<any>(this.apiUrl, loginData);
   }
 }
