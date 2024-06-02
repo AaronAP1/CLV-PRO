@@ -17,13 +17,17 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <input type="email" [(ngModel)]="email" class="form-control form-control-lg bg-light fs-6"
-                            placeholder="EMAIL">
+                        <input type="" [(ngModel)]="email" class="form-control form-control-lg bg-light fs-6"
+                            placeholder="USUARIO">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" [(ngModel)]="password" class="form-control form-control-lg bg-light fs-6"
+                            placeholder="CONTRASEÑA">
                     </div>
                     <div class="input-group mb-1">
-                        <input type="password" [(ngModel)]="password" class="form-control form-control-lg bg-light fs-6"
-                            placeholder="PASSWORD">
-                    </div>
+                      <input type="" [(ngModel)]="codigopagoL" class="form-control form-control-lg bg-light fs-6"
+                          placeholder="CODIGO DE PAGO">
+                  </div>
 
                     <!-- Mostrar el mensaje de error -->
                     <div *ngIf="loginError" class="alert alert-danger mb-3">{{ loginError }}</div>
@@ -34,7 +38,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <button type="button" class="btn btn-lg btn-success w-100 fs-6 rounded-5"
-                            (click)="onLoginClick()">Login</button>
+                            (click)="onSubmit()">Login</button>
                     </div>
                 </div>
             </div>

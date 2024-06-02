@@ -10,30 +10,26 @@ import { LoginService } from 'src/app/api/login.service';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  codigopagoL: string = '';
   loginError: string = '';
 
   constructor(private loginService: LoginService, private router: Router) {}
 
-  onLoginClick(): void {
-    console.log('Botón de login clickeado');
-    this.onSubmit();
-  }
-
   onSubmit(): void {
     this.loginError = ''; // Limpiar el mensaje de error
 
-    console.log('Datos enviados por el Login:', { email: this.email, password: this.password });
+    console.log('Datos enviados por el Login:', { email: this.email, password: this.password, codigopago: this.codigopagoL });
 
-    if (this.email && this.password) {
-      this.loginService.login(this.email, this.password).subscribe({
-        next: response => {
+    if (this.email && this.password && this.codigopagoL) {
+      this.loginService.login(this.email, this.password, this.codigopagoL).subscribe({
+        next: (response: any) => {
           console.log('Respuesta del servidor:', response);
-          const codigoPago = response?.codigo_pago; 
-          if (codigoPago) {
-            console.log('Código de Pago obtenido:', codigoPago);
-            localStorage.setItem('codigoPago', codigoPago); // Guardar en localStorage
-            console.log('Enviando código de pago a la ruta datoscliente:', codigoPago);
-            this.router.navigate(['/datoscliente'], { state: { codigoPago } });
+          const codigoPagoL = response?.codigo_pago;
+          if (codigoPagoL) {
+            console.log('Código de Pago obtenido:', codigoPagoL);
+            localStorage.setItem('codigoPago', codigoPagoL); // Guardar en localStorage
+            console.log('Enviando código de pago a la ruta datoscliente:', codigoPagoL);
+            this.router.navigate(['/datoscliente'], { state: { codigoPagoL } });
           } else {
             console.error('No se recibió el código de pago en la respuesta del servidor.');
             this.loginError = 'Error al iniciar sesión. No se recibió el código de pago.';
@@ -41,11 +37,15 @@ export class LoginComponent {
         },
         error: (error: any) => {
           console.error('Error en el login:', error);
-          this.loginError = 'Error al iniciar sesión. Verifica tus credenciales.';
+          if (error.status === 403) {
+            this.loginError = 'Acceso denegado. Verifica tus credenciales o permisos.';
+          } else {
+            this.loginError = 'Error al iniciar sesión. Verifica tus credenciales.';
+          }
         }
       });
     } else {
-      this.loginError = 'Por favor, ingresa tu email y contraseña.';
+      this.loginError = 'Por favor, ingresa tu email, contraseña y código de pago.';
     }
   }
 }
