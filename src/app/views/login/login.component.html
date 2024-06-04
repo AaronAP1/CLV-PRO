@@ -17,17 +17,14 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <input type="" [(ngModel)]="email" class="form-control form-control-lg bg-light fs-6"
+                        <input type="text" [(ngModel)]="username" class="form-control form-control-lg bg-light fs-6"
                             placeholder="USUARIO">
                     </div>
                     <div class="input-group mb-3">
                         <input type="password" [(ngModel)]="password" class="form-control form-control-lg bg-light fs-6"
                             placeholder="CONTRASEÑA">
                     </div>
-                    <div class="input-group mb-1">
-                      <input type="" [(ngModel)]="codigopagoL" class="form-control form-control-lg bg-light fs-6"
-                          placeholder="CODIGO DE PAGO">
-                  </div>
+
 
                     <!-- Mostrar el mensaje de error -->
                     <div *ngIf="loginError" class="alert alert-danger mb-3">{{ loginError }}</div>

@@ -8,9 +8,8 @@ import { LoginService } from 'src/app/api/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  email: string = '';
+  username: string = '';
   password: string = '';
-  codigopagoL: string = '';
   loginError: string = '';
 
   constructor(private loginService: LoginService, private router: Router) {}
@@ -18,18 +17,18 @@ export class LoginComponent {
   onSubmit(): void {
     this.loginError = ''; // Limpiar el mensaje de error
 
-    console.log('Datos enviados por el Login:', { email: this.email, password: this.password, codigopago: this.codigopagoL });
+    console.log('Datos enviados por el Login:', { username: this.username, password: this.password});
 
-    if (this.email && this.password && this.codigopagoL) {
-      this.loginService.login(this.email, this.password, this.codigopagoL).subscribe({
+    if (this.username && this.password) {
+      this.loginService.login(this.username, this.password).subscribe({
         next: (response: any) => {
           console.log('Respuesta del servidor:', response);
-          const codigoPagoL = response?.codigo_pago;
-          if (codigoPagoL) {
-            console.log('Código de Pago obtenido:', codigoPagoL);
-            localStorage.setItem('codigoPago', codigoPagoL); // Guardar en localStorage
-            console.log('Enviando código de pago a la ruta datoscliente:', codigoPagoL);
-            this.router.navigate(['/datoscliente'], { state: { codigoPagoL } });
+          const codigoPago = response?.codigo_pago;
+          if (codigoPago) {
+            console.log('Código de Pago obtenido:', codigoPago);
+            localStorage.setItem('codigoPago', codigoPago); // Guardar en localStorage
+            console.log('Enviando código de pago a la ruta datoscliente:', codigoPago);
+            this.router.navigate(['/datoscliente'], { state: { codigoPago } });
           } else {
             console.error('No se recibió el código de pago en la respuesta del servidor.');
             this.loginError = 'Error al iniciar sesión. No se recibió el código de pago.';

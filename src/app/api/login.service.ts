@@ -10,8 +10,8 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  login(email: string, password: string, codigopagoL: string): Observable<any> {
-    const loginData = { email, password, codigopagoL };
+  login(email: string, password: string): Observable<any> {
+    const loginData = { email, password };
 
     return this.http.post<any>(this.apiUrl, loginData);
   }
