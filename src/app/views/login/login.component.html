@@ -16,27 +16,23 @@
 
                     </div>
 
-                    <div class="input-group mb-3">
-                        <input type="text" [(ngModel)]="username" class="form-control form-control-lg bg-light fs-6"
-                            placeholder="USUARIO">
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" [(ngModel)]="password" class="form-control form-control-lg bg-light fs-6"
-                            placeholder="CONTRASEÑA">
-                    </div>
+                    <label for="username">Username:</label>
+  <input id="username" [(ngModel)]="username" type="text">
+
+  <label for="password">Password:</label>
+  <input id="password" [(ngModel)]="password" type="password">
+
+  <button (click)="login()">Login</button>
 
 
                     <!-- Mostrar el mensaje de error -->
-                    <div *ngIf="loginError" class="alert alert-danger mb-3">{{ loginError }}</div>
+
 
                     <div class="input-group mb-5 d-flex justify-content-center">
                         <div class="forgot mt-4">
                         </div>
                     </div>
-                    <div class="input-group mb-3">
-                        <button type="button" class="btn btn-lg btn-success w-100 fs-6 rounded-5"
-                            (click)="onSubmit()">Login</button>
-                    </div>
+
                 </div>
             </div>
         </div>
