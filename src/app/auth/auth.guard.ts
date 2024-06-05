@@ -9,13 +9,11 @@ export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.authService.isLoggedIn()) {
-      return true;
+      return true; // Permitir acceso a la ruta protegida
     } else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/landing']); // Redirigir al usuario a /landing si no está autenticado
       return false;
     }
   }

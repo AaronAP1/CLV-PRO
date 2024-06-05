@@ -10,24 +10,18 @@ import { LandingComponent } from './views/paginaprincipal/landing/landing.compon
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-
-  { path: '', redirectTo: '/landing', pathMatch: 'full' },
-  { path: 'landing', component: LandingComponent},
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'landing', component: LandingComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'pagos', component: PagosComponent, canActivate: [AuthGuard] },
   { path: 'pago-realizado', component: PagoRealizadoComponent, canActivate: [AuthGuard] },
   { path: 'datoscliente', component: DatosclienteComponent, canActivate: [AuthGuard] },
   { path: 'datoscontrato', component: DatoscontratoComponent, canActivate: [AuthGuard] },
-  { path: '', redirectTo: '/pagos', pathMatch: 'full' } // Ruta predeterminada
-
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule { }

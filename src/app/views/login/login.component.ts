@@ -44,4 +44,8 @@ export class LoginComponent {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
+
+  salir(){
+    this.router.navigate(['/landing'])
+  }
 }

@@ -8,15 +8,7 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private router: Router, private authService: AuthService) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        if (!this.authService.isLoggedIn() && event.url !== '/login') {
-          this.router.navigate(['/login']);
-        }
-      }
-    });
-  }
+
 }
 
 
