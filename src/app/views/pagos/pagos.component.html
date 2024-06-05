@@ -22,13 +22,13 @@
             </thead>
             <tbody>
               <tr *ngFor="let cobro of cobrosPaginados; let i = index">
-                <td>{{ i + 1 }}</td> 
-                <td>{{ cobro.FECHA_EMICION_RECIBO | date: 'dd/MM/yyyy' }}</td>
-                <td>{{ cobro.DESCRIPCION_COBRO_REALIZAR }}</td>
-                <td>{{ cobro.IMPORTE_COBRO_COMPLETO }}</td>
-                <td>{{ cobro.FECHA_VENCIMIENTO_RECIBO | date: 'dd/MM/yyyy' }}</td>
-                <td>Pendiente</td> <!-- Agrega la lógica para determinar el estado -->
-                <td>No</td> <!-- Agrega la lógica para determinar si está vencido -->
+                <td>{{ i + 1 }}</td>
+                <td>{{ cobro.recibido | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ cobro.descripcion }}</td>
+                <td>{{ cobro.importe }}</td>
+                <td>{{ cobro.vencimiento | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ cobro.vencido}}</td>
+                <td>{{ cobro.estado}}</td>
               </tr>
             </tbody>
           </table>
@@ -39,7 +39,7 @@
       <div class="d-flex justify-content-center mt-4">
         <nav>
           <ul class="pagination">
-      
+
             <!-- Botón "Anterior" -->
             <li class="page-item" [class.disabled]="paginaActual === 1">
               <button class="page-link" (click)="irPagina(paginaActual - 1)" aria-label="Anterior">
@@ -47,14 +47,14 @@
                 <span class="visually-hidden">Anterior</span>
               </button>
             </li>
-      
+
             <!-- Números de página -->
             <ng-container *ngFor="let pagina of paginas">
               <li class="page-item" [class.active]="pagina === paginaActual">
                 <button class="page-link" (click)="irPagina(pagina)">{{ pagina }}</button>
               </li>
             </ng-container>
-      
+
             <!-- Botón "Siguiente" -->
             <li class="page-item" [class.disabled]="paginaActual === totalPaginas">
               <button class="page-link" (click)="irPagina(paginaActual + 1)" aria-label="Siguiente">
@@ -62,7 +62,7 @@
                 <span class="visually-hidden">Siguiente</span>
               </button>
             </li>
-            
+
           </ul>
         </nav>
       </div>

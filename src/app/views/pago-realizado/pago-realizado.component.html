@@ -10,24 +10,22 @@
             <thead class="table-secondary">
               <tr>
                 <th scope="col" class="header-text">N°</th>
-                <th scope="col" class="header-text">Recibido</th>
-                <th scope="col" class="header-text">Descripción</th>
+                <th scope="col" class="header-text">Depositado</th>
+                <th scope="col" class="header-text">Descripcion</th>
                 <th scope="col" class="header-text">Importe</th>
-                <th scope="col" class="header-text">Vencimiento</th>
-                <th scope="col" class="header-text">Estado</th>
-                <th scope="col" class="header-text">Vencido</th>
+                <th scope="col" class="header-text">Fecha Pago</th>
+                <th scope="col" class="header-text">Forma Pago</th>
               </tr>
             </thead>
             <tbody>
               <!-- Utiliza *ngFor para iterar sobre cobrosPaginados y mostrar la información -->
               <tr *ngFor="let cobro of cobrosPaginados; let i = index">
                 <td>{{ (paginaActual - 1) * registrosPorPagina + i + 1 }}</td>
-                <td>{{ cobro.FECHA_PAGO }}</td>
-                <td>{{ cobro.DESCRIPCION_RECIBO }}</td>
-                <td>{{ cobro.IMP_RECIBO }}</td>
-                <td>{{ cobro.FECHA_VENCIMIENTO }}</td>
-                <td>Pagado</td>
-                <td>{{ cobro.DIA_MORA > 0 ? 'Sí' : 'No' }}</td>
+                <td>{{ cobro.recibo }}</td>
+                <td>{{ cobro.descripcionrecibo}}</td>
+                <td>{{ cobro.pagado }}</td>
+                <td>{{ cobro.fechapago }}</td>
+                <td>{{ cobro.formapago}}</td>
               </tr>
             </tbody>
           </table>

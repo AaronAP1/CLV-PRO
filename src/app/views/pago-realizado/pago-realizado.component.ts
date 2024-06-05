@@ -11,16 +11,16 @@ export class PagoRealizadoComponent implements OnInit {
   cobros: any[] = [];
   paginaActual = 1;
   registrosPorPagina = 10;
-  codigoPago: string = '';
+  codigodepago: string = '';
 
   constructor(private router: Router, private cobrosService: PagosRealizadosService) { }
 
   ngOnInit(): void {
-    this.codigoPago = localStorage.getItem('codigoPago') || '';
-    console.log('Código de pago obtenido del localStorage:', this.codigoPago);
+    this.codigodepago = localStorage.getItem('codigodepago') || '';
+    console.log('Código de pago obtenido del localStorage:', this.codigodepago);
 
-    if (this.codigoPago) {
-      this.obtenerpagosrealizados(this.codigoPago);
+    if (this.codigodepago) {
+      this.obtenerpagosrealizados(this.codigodepago);
     } else {
       console.error('Código de pago no obtenido del localStorage.');
     }
@@ -63,7 +63,7 @@ export class PagoRealizadoComponent implements OnInit {
   }
 
   onLogoutClick(): void {
-    localStorage.removeItem('codigoPago');
-    this.router.navigate(['login']);
+    localStorage.removeItem('codigodepago');
+    this.router.navigate(['/login']);
   }
 }

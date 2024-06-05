@@ -8,25 +8,25 @@ import { DatosClienteService } from 'src/app/api/datos_cliente.service';
   styleUrls: ['./datoscliente.component.css']
 })
 export class DatosclienteComponent implements OnInit {
-  datosCliente: any = {}; 
-  codigoPago: string = '';  
+  datosCliente: any = {};
+  codigodepago: string = '';
 
   constructor(private router: Router, private datosClienteService: DatosClienteService) { }
 
   ngOnInit(): void {
-    this.codigoPago = localStorage.getItem('codigoPago') || '';
-    if (this.codigoPago) {
-      console.log('Código de pago obtenido del localStorage:', this.codigoPago);
-      this.obtenerDatosCliente(); 
+    this.codigodepago = localStorage.getItem('codigodepago') || '';
+    if (this.codigodepago) {
+      console.log('Código de pago obtenido del localStorage:', this.codigodepago);
+      this.obtenerDatosCliente();
       console.error('Código de pago no obtenido del localStorage.');
     }
   }
 
   obtenerDatosCliente(): void {
-    this.datosClienteService.obtenerDatosCliente(this.codigoPago).subscribe({
+    this.datosClienteService.obtenerDatosCliente(this.codigodepago).subscribe({
       next: (response: any[]) => {
         if (response && response.length > 0) {
-          this.datosCliente = response[0]; 
+          this.datosCliente = response[0];
           console.log('Datos del cliente:', this.datosCliente);
 
           // Guardar los datos del cliente en el localStorage

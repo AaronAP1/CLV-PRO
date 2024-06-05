@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DatosClienteService {
-  private apiUrl = 'https://apiclvdjango.onrender.com/consumo/api/clvdat/';
+  private apiUrl = 'https://clvproject-production.up.railway.app/api/v1/cliente/buscar/cod/';
 
   constructor(private http: HttpClient) { }
 
-  obtenerDatosCliente(codigoPago: string): Observable<any> {
-    const url = `${this.apiUrl}${codigoPago}`;
+  obtenerDatosCliente(codigodepago: string): Observable<any> {
+    const url = `${this.apiUrl}${codigodepago}`;
     return this.http.get<any>(url);
   }
 }
