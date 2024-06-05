@@ -23,10 +23,10 @@
             <tbody>
               <tr *ngFor="let cobro of cobrosPaginados; let i = index">
                 <td>{{ i + 1 }}</td>
-                <td>{{ cobro.recibido | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ cobro.recibido }}</td>
                 <td>{{ cobro.descripcion }}</td>
                 <td>{{ cobro.importe }}</td>
-                <td>{{ cobro.vencimiento | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ cobro.vencimiento  }}</td>
                 <td>{{ cobro.vencido}}</td>
                 <td>{{ cobro.estado}}</td>
               </tr>
