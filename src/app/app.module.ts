@@ -19,6 +19,10 @@ import { LandingComponent } from './views/paginaprincipal/landing/landing.compon
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PrincipalComponent } from './views/principal/principal.component';
+import { HeaderadminComponent } from './components/headeradmin/headeradmin.component';
+import { SidebaradminComponent } from './components/sidebaradmin/sidebaradmin.component';
+import { UsuariosComponent } from './viewsA/usuarios/usuarios.component';
+import { DataprincipalComponent } from './viewsA/dataprincipal/dataprincipal.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { PrincipalComponent } from './views/principal/principal.component';
     MainComponent,
     NavbarComponent,
     LandingComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    HeaderadminComponent,
+    SidebaradminComponent,
+    UsuariosComponent,
+    DataprincipalComponent
   ],
   imports: [
     BrowserModule,
