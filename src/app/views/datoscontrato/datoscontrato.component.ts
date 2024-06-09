@@ -19,6 +19,7 @@ export class DatoscontratoComponent implements OnInit {
       console.log('Datos del cliente obtenidos del localStorage:', this.datosCliente);
     } else {
       console.error('Datos del cliente no encontrados en el localStorage.');
+
     }
   }
 
