@@ -1,26 +1,68 @@
 <div class="container-fluid">
-    <div class="row">
-      <nav class="col-md-3 col-lg-12 d-md-block bg-light sidebar">
-        <div class="position-sticky pt-3">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/datoscliente" routerLinkActive="active">
-                <i class="bi bi-calendar-check-fill"></i> Datos del Cliente
-              </a>
-            </li>
-            <li class="nav-item mb-2">
-              <a class="nav-link" routerLink="/datoscontrato" routerLinkActive="active">
-                <i class="bi bi-cash-stack"></i> Datos del Contrato
-              </a>
-            </li>
-            <!-- Más elementos de la lista si es necesario -->
-          </ul>        
+  <div class="row">
+    <nav class="col-md-3 col-lg-12 d-md-block bg-light sidebar">
+      <div class="position-sticky pt-3">
+        <!-- Información del usuario -->
+        <div class="user-info bg-secondary text-white p-3 mb-3">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-person-circle" style="font-size: 2rem;"></i>
+            <div class="ms-2">
+              <div id="username">Nombre de Usuario</div>
+              <div id="useremail">correo@ejemplo.com</div>
+            </div>
+          </div>
         </div>
-      </nav>
-  
-      <!-- Parte principal -->
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <router-outlet></router-outlet>
-      </main>
-    </div>
+
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/principal" routerLinkActive="active">
+              <i class="bi bi-speedometer"></i> Principal
+            </a>
+          </li>
+        </ul>
+
+        <!-- Sección de Datos -->
+        <div class="sidebar-heading">Datos</div>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/datoscliente" routerLinkActive="active">
+              <i class="bi bi-calendar-check-fill"></i> Datos del Cliente
+            </a>
+          </li>
+          <li class="nav-item mb-2">
+            <a class="nav-link" routerLink="/datoscontrato" routerLinkActive="active">
+              <i class="bi bi-receipt"></i> Datos del Contrato
+            </a>
+          </li>
+        </ul>
+
+        <!-- Sección de Pagos -->
+        <div class="sidebar-heading">Pagos</div>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/pagos" routerLinkActive="active">
+              <i class="bi bi-credit-card"></i> Cobros
+            </a>
+          </li>
+          <li class="nav-item mb-2">
+            <a class="nav-link" routerLink="/pago-realizado" routerLinkActive="active">
+              <i class="bi bi-cash-stack"></i> Pagos Realizados
+            </a>
+          </li>
+        </ul>
+
+        <ul class="nav flex-column mt-4">
+          <li class="nav-item">
+            <button class="btn btn-danger w-100" (click)="onLoginClick2()">
+              <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Parte principal -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <router-outlet></router-outlet>
+    </main>
   </div>
+</div>
