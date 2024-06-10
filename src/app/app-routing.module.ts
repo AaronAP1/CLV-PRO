@@ -15,6 +15,7 @@ import { TrabajadorComponent } from './viewsA/trabajador/trabajador.component';
 import { RecaudacionesadminComponent } from './viewsA/recaudacionesadmin/recaudacionesadmin.component';
 import { CobrosadminComponent } from './viewsA/cobrosadmin/cobrosadmin.component';
 import { EditarusuarioComponent } from './viewsA/editarusuario/editarusuario.component';
+import { DataprincipalComponent } from './viewsA/dataprincipal/dataprincipal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'trabajador', component: TrabajadorComponent, canActivate: [AuthGuard]},
   { path: 'recaudaciones', component: RecaudacionesadminComponent, canActivate: [AuthGuard]},
   { path: 'cobros', component: CobrosadminComponent, canActivate: [AuthGuard]},
-  { path: 'editarusuario', component: EditarusuarioComponent, canActivate: [AuthGuard]}
+  { path: 'editarusuario', component: EditarusuarioComponent, canActivate: [AuthGuard]},
+  { path: 'dataprincipal', component: DataprincipalComponent, canActivate: [AuthGuard]}
 
 ];
 
