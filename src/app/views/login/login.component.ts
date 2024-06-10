@@ -29,9 +29,9 @@ export class LoginComponent {
         console.log('Login successful', response);
         this.authService.setSession(response.token, response.usuario, response.codigodepagoL);
         if (response.rol === 'USER') {
-          this.router.navigate(['/datoscliente']);
+          this.router.navigate(['/principal']);
         } else if (response.rol === 'ADMIN') {
-          alert('HOLA ADMIN');
+          this.router.navigate(['/principaladmin'])
         }
       },
       error => {

@@ -9,6 +9,8 @@ import { DatoscontratoComponent } from './views/datoscontrato/datoscontrato.comp
 import { LandingComponent } from './views/paginaprincipal/landing/landing.component';
 import { AuthGuard } from './auth/auth.guard';
 import { PrincipalComponent } from './views/principal/principal.component';
+import { PrincipaladminComponent } from './viewsA/principaladmin/principaladmin.component';
+import { UsuariosComponent } from './viewsA/usuarios/usuarios.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -19,7 +21,10 @@ const routes: Routes = [
   { path: 'pago-realizado', component: PagoRealizadoComponent, canActivate: [AuthGuard] },
   { path: 'datoscliente', component: DatosclienteComponent, canActivate: [AuthGuard] },
   { path: 'datoscontrato', component: DatoscontratoComponent, canActivate: [AuthGuard] },
-  { path: 'principal', component: PrincipalComponent, canActivate: [AuthGuard]}
+  { path: 'principal', component: PrincipalComponent, canActivate: [AuthGuard]},
+  { path: 'principaladmin', component: PrincipaladminComponent, canActivate: [AuthGuard]},
+  { path: 'usuarios', component: UsuariosComponent, canActivate: [AuthGuard]}
+
 ];
 
 @NgModule({

@@ -1,0 +1,11 @@
+.navbar {
+  background-color: #4CAF50; /* Ajusta este valor al color de tu marca */
+  justify-content: space-between; /* Alinea el logo y el icono en los extremos */
+  padding: 10px; /* Ajusta el padding si es necesario */
+}
+.navbar-logo {
+  height: 60px; /* Ajusta la altura del logo según tus necesidades */
+}
+.navbar-user-icon {
+  height: 35px; /* Ajusta la altura del ícono de usuario según tus necesidades */
+}

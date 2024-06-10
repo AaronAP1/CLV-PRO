@@ -1,1 +1,79 @@
-<p>sidebaradmin works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <div class="position-sticky pt-3">
+        <!-- Información del usuario -->
+        <div class="user-info bg-secondary text-white p-3 mb-3">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-person-circle" style="font-size: 2rem;"></i>
+            <div class="ms-2">
+              <div id="username">Nombre de Usuario</div>
+              <div id="useremail">correo@ejemplo.com</div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-heading">Inicio</div>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/principaladmin" routerLinkActive="active">
+              <i class="bi bi-speedometer"></i> Principal
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-heading">Administracion</div>
+
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/usuarios" routerLinkActive="active">
+              <i class="bi bi-speedometer"></i> Usuarios
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/usuarios" routerLinkActive="active">
+              <i class="bi bi-speedometer"></i> Trabajadores
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-heading">Datos</div>
+
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="" routerLinkActive="active">
+              <i class="bi bi-speedometer"></i> Data Consolidada
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="" routerLinkActive="active">
+              <i class="bi bi-speedometer"></i> Cobros
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="" routerLinkActive="active">
+              <i class="bi bi-speedometer"></i> Recaudaciones
+            </a>
+          </li>
+        </ul>
+
+        <!-- Sección de Datos -->
+
+
+        <!-- Sección de Pagos -->
+
+
+        <ul class="nav flex-column mt-4">
+          <li class="nav-item">
+            <button class="btn btn-danger w-100" >
+              <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Parte principal -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

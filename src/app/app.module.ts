@@ -23,6 +23,7 @@ import { HeaderadminComponent } from './components/headeradmin/headeradmin.compo
 import { SidebaradminComponent } from './components/sidebaradmin/sidebaradmin.component';
 import { UsuariosComponent } from './viewsA/usuarios/usuarios.component';
 import { DataprincipalComponent } from './viewsA/dataprincipal/dataprincipal.component';
+import { PrincipaladminComponent } from './viewsA/principaladmin/principaladmin.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { DataprincipalComponent } from './viewsA/dataprincipal/dataprincipal.com
     HeaderadminComponent,
     SidebaradminComponent,
     UsuariosComponent,
-    DataprincipalComponent
+    DataprincipalComponent,
+    PrincipaladminComponent
   ],
   imports: [
     BrowserModule,

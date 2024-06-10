@@ -1,0 +1,60 @@
+.sidebar {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  }
+
+  .sidebar .nav-link {
+    color: #333; /* Color del texto */
+    margin-left: 10px; /* Espacio a la izquierda para los iconos */
+    margin-right: 10px; /* Espacio a la derecha */
+    padding-top: 10px; /* Espaciado superior */
+    padding-bottom: 10px; /* Espaciado inferior */
+    font-weight: 500; /* Fuente un poco más gruesa */
+  }
+
+  .sidebar .nav-link .feather {
+    margin-right: 2px; /* Espacio entre el icono y el texto */
+    color: #727272; /* Color de los iconos */
+  }
+
+.sidebar .nav-link.active,
+.sidebar .nav-link.active i[data-feather] {
+  color:rgba(9, 138, 9, 0.692); /* Color para el elemento activo */
+
+}
+
+.sidebar .nav-link.active svg {
+  stroke: rgba(9, 138, 9, 0.692); /* Cambia el color de la línea del icono SVG */
+}
+
+  /* Ajuste adicional para que la barra de navegación sea pegajosa */
+  .position-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+  }
+
+  /* Ajustes para el main content */
+  main {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      min-height: auto; /* Altura automática */
+      height: auto; /* Altura automática para asegurarse de que se aplique */
+      /* Otras posibles propiedades que podrías ajustar para móviles */
+    }
+  }
+
+
+  .sidebar-heading {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #6c757d;
+    padding: 0.75rem 1rem;
+  }
