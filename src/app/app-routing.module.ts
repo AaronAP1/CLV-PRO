@@ -11,6 +11,10 @@ import { AuthGuard } from './auth/auth.guard';
 import { PrincipalComponent } from './views/principal/principal.component';
 import { PrincipaladminComponent } from './viewsA/principaladmin/principaladmin.component';
 import { UsuariosComponent } from './viewsA/usuarios/usuarios.component';
+import { TrabajadorComponent } from './viewsA/trabajador/trabajador.component';
+import { RecaudacionesadminComponent } from './viewsA/recaudacionesadmin/recaudacionesadmin.component';
+import { CobrosadminComponent } from './viewsA/cobrosadmin/cobrosadmin.component';
+import { EditarusuarioComponent } from './viewsA/editarusuario/editarusuario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -23,7 +27,11 @@ const routes: Routes = [
   { path: 'datoscontrato', component: DatoscontratoComponent, canActivate: [AuthGuard] },
   { path: 'principal', component: PrincipalComponent, canActivate: [AuthGuard]},
   { path: 'principaladmin', component: PrincipaladminComponent, canActivate: [AuthGuard]},
-  { path: 'usuarios', component: UsuariosComponent, canActivate: [AuthGuard]}
+  { path: 'usuarios', component: UsuariosComponent, canActivate: [AuthGuard]},
+  { path: 'trabajador', component: TrabajadorComponent, canActivate: [AuthGuard]},
+  { path: 'recaudaciones', component: RecaudacionesadminComponent, canActivate: [AuthGuard]},
+  { path: 'cobros', component: CobrosadminComponent, canActivate: [AuthGuard]},
+  { path: 'editarusuario', component: EditarusuarioComponent, canActivate: [AuthGuard]}
 
 ];
 

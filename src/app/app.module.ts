@@ -24,6 +24,10 @@ import { SidebaradminComponent } from './components/sidebaradmin/sidebaradmin.co
 import { UsuariosComponent } from './viewsA/usuarios/usuarios.component';
 import { DataprincipalComponent } from './viewsA/dataprincipal/dataprincipal.component';
 import { PrincipaladminComponent } from './viewsA/principaladmin/principaladmin.component';
+import { TrabajadorComponent } from './viewsA/trabajador/trabajador.component';
+import { CobrosadminComponent } from './viewsA/cobrosadmin/cobrosadmin.component';
+import { RecaudacionesadminComponent } from './viewsA/recaudacionesadmin/recaudacionesadmin.component';
+import { EditarusuarioComponent } from './viewsA/editarusuario/editarusuario.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,11 @@ import { PrincipaladminComponent } from './viewsA/principaladmin/principaladmin.
     SidebaradminComponent,
     UsuariosComponent,
     DataprincipalComponent,
-    PrincipaladminComponent
+    PrincipaladminComponent,
+    TrabajadorComponent,
+    CobrosadminComponent,
+    RecaudacionesadminComponent,
+    EditarusuarioComponent
   ],
   imports: [
     BrowserModule,
