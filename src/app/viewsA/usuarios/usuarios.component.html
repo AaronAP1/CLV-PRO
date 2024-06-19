@@ -3,9 +3,69 @@
     <app-sidebaradmin class="col-2"></app-sidebaradmin>
     <div class="container mt-5">
         <h2 class="mt-2">
-            Bienvenido
+            Usuarios
         </h2>
         <div class="border mb-3"></div>
+
+
+
+      <div class="blanco mt-4 p-3 bg-white rounded-4 shadow">
+        <div class="table-responsive table-responsive-lg table-responsive-sm table-responsive-md table-responsive-xl">
+          <table id="miTabla" class="table table-bordered text-center mt-2">
+            <thead class="table-secondary">
+              <tr>
+                <th scope="col" class="header-text">N°</th> <!-- Nueva columna para la numeración -->
+                <th scope="col" class="header-text">Rol</th>
+                <th scope="col" class="header-text">Codigo de Pago</th>
+                <th scope="col" class="header-text">Username</th>
+                <th scope="col" class="header-text">Acciones</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cobro of cobrosPaginados; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ cobro.recibido }}</td>
+                <td>{{ cobro.descripcion }}</td>
+                <td>{{ cobro.importe }}</td>
+                <td>{{ cobro.vencimiento  }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Paginador -->
+      <div class="d-flex justify-content-center mt-4">
+        <nav>
+          <ul class="pagination">
+
+            <!-- Botón "Anterior" -->
+            <li class="page-item" [class.disabled]="paginaActual === 1">
+              <button class="page-link" (click)="irPagina(paginaActual - 1)" aria-label="Anterior">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+            </li>
+
+            <!-- Números de página -->
+            <ng-container *ngFor="let pagina of paginas">
+              <li class="page-item" [class.active]="pagina === paginaActual">
+                <button class="page-link" (click)="irPagina(pagina)">{{ pagina }}</button>
+              </li>
+            </ng-container>
+
+            <!-- Botón "Siguiente" -->
+            <li class="page-item" [class.disabled]="paginaActual === totalPaginas">
+              <button class="page-link" (click)="irPagina(paginaActual + 1)" aria-label="Siguiente">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
 
 
     </div>

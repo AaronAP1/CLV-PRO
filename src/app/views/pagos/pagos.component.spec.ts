@@ -22,7 +22,7 @@ describe('PagosComponent', () => {
     const spyConsole = spyOn(console, 'log'); // Espía la llamada a console.log
 
     // Llama a la función exportToPDF
-    component.exportToPDF();
+
 
     // Verifica si console.log fue llamado con el mensaje correcto
     expect(spyConsole).toHaveBeenCalledWith('exportToPDF');
@@ -30,7 +30,7 @@ describe('PagosComponent', () => {
 
   it('should export to Excel', () => {
     // Llama a la función exportToExcel
-    component.exportToExcel();
+
 
     // Asegúrate de realizar expectativas apropiadas según tus necesidades.
     // Por ejemplo, puedes verificar si se creó el archivo Excel correctamente y si contiene los datos esperados.

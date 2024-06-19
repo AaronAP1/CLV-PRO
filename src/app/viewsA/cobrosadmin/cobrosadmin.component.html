@@ -3,19 +3,74 @@
     <app-sidebaradmin class="col-2"></app-sidebaradmin>
     <div class="container mt-5">
         <h2 class="mt-2">
-            Bienvenido
+            Cobros Generales
         </h2>
         <div class="border mb-3"></div>
-        <div class="border border-dark border-2 rounded" style="height: 30%;">
-            contenido div 1
+        <div class="blanco mt-4 p-3 bg-white rounded-4 shadow">
+          <div class="table-responsive table-responsive-lg table-responsive-sm table-responsive-md table-responsive-xl">
+            <table id="miTabla" class="table table-bordered text-center mt-2">
+              <thead class="table-secondary">
+                <tr>
+                  <th scope="col" class="header-text">N°</th> <!-- Nueva columna para la numeración -->
+                  <th scope="col" class="header-text">Codigos de Pago</th>
+                  <th scope="col" class="header-text">Recibo</th>
+                  <th scope="col" class="header-text">Descripcion del Recibo</th>
+                  <th scope="col" class="header-text">Pagado</th>
+                  <th scope="col" class="header-text">Fecha Pago</th>
+                  <th scope="col" class="header-text">Forma Pago</th>
+                  <th scope="col" class="header-text">Opciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cobro of cobrosPaginados; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ cobro.codigopago }}</td>
+                  <td>{{ cobro.fechapago  }}</td>
+                  <td>{{ cobro.descripcionrecibo }}</td>
+                  <td>{{ cobro.pagado }}</td>
+                  <td>{{ cobro.fechapago  }}</td>
+                  <td>{{ cobro.formapago  }}</td>
+
+
+            <td class="col"><button class="text-light rounded border-0 ms-1 boton " style="background-color: green;">Detalles</button><button
+                    class="text-light rounded border-0 ms-1 boton" style="background-color: #EB2121;">Eliminar</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="d-flex" style="height: 30%;">
-            <div class="col border border-dark border-2 rounded me-4 mt-4" style="height: 100%;">
-                contenido div2
-            </div>
-            <div class="col border border-dark border-2 rounded ms-4 mt-4" style="height: 100%;">
-                contenido div3
-            </div>
+
+        <!-- Paginador -->
+        <div class="d-flex justify-content-center mt-4">
+          <nav>
+            <ul class="pagination">
+
+              <!-- Botón "Anterior" -->
+              <li class="page-item" [class.disabled]="paginaActual === 1">
+                <button class="page-link" (click)="irPagina(paginaActual - 1)" aria-label="Anterior">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="visually-hidden">Anterior</span>
+                </button>
+              </li>
+
+              <!-- Números de página -->
+              <ng-container *ngFor="let pagina of paginas">
+                <li class="page-item" [class.active]="pagina === paginaActual">
+                  <button class="page-link" (click)="irPagina(pagina)">{{ pagina }}</button>
+                </li>
+              </ng-container>
+
+              <!-- Botón "Siguiente" -->
+              <li class="page-item" [class.disabled]="paginaActual === totalPaginas">
+                <button class="page-link" (click)="irPagina(paginaActual + 1)" aria-label="Siguiente">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="visually-hidden">Siguiente</span>
+                </button>
+              </li>
+
+            </ul>
+          </nav>
         </div>
+
     </div>
 </div>
