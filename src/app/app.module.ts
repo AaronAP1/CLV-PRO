@@ -28,6 +28,7 @@ import { TrabajadorComponent } from './viewsA/trabajador/trabajador.component';
 import { CobrosadminComponent } from './viewsA/cobrosadmin/cobrosadmin.component';
 import { RecaudacionesadminComponent } from './viewsA/recaudacionesadmin/recaudacionesadmin.component';
 import { EditarusuarioComponent } from './viewsA/editarusuario/editarusuario.component';
+import { DetallesModalComponent } from './viewsA/detalles-modal/detalles-modal.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { EditarusuarioComponent } from './viewsA/editarusuario/editarusuario.com
     TrabajadorComponent,
     CobrosadminComponent,
     RecaudacionesadminComponent,
-    EditarusuarioComponent
+    EditarusuarioComponent,
+    DetallesModalComponent
   ],
   imports: [
     BrowserModule,

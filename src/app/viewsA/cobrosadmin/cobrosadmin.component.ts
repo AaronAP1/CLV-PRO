@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CobrosAdminService } from 'src/app/api/cobrosadmin.service';
 
+import * as bootstrap from 'bootstrap';
+
 @Component({
   selector: 'app-cobrosadmin',
   templateUrl: './cobrosadmin.component.html',
@@ -11,7 +13,7 @@ export class CobrosadminComponent implements OnInit {
   cobrosadmin: any[] = [];
   paginaActual = 1;
   registrosPorPagina = 10;
-
+  cobroSeleccionado: any;
 
   constructor(private router: Router, private cobrosadminservice: CobrosAdminService) { }
 
@@ -20,8 +22,6 @@ export class CobrosadminComponent implements OnInit {
       this.cobrosadmin = data;
     });
   }
-
-
 
   get totalPaginas(): number {
     return Math.ceil(this.cobrosadmin.length / this.registrosPorPagina);
@@ -52,4 +52,24 @@ export class CobrosadminComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  openDetalles(cobro: any): void {
+    this.cobroSeleccionado = cobro;
+    const modalElement = document.getElementById('detallesModal');
+    if (modalElement) {
+      const modal = new bootstrap.Modal(modalElement);
+      modal.show();
+    }
+  }
+  eliminarCobro(cobro: any): void {
+    if (confirm(`¿Estás seguro de que deseas eliminar el cobro con código ${cobro.codigopago}?`)) {
+      this.cobrosadminservice.eliminarCobro(cobro.id).subscribe(() => {
+        // Eliminar el cobro del array y actualizar la tabla
+        this.cobrosadmin = this.cobrosadmin.filter(item => item.idcobros !== cobro.idcobros);
+        alert('Cobro eliminado con éxito');
+      }, error => {
+        alert('Error al eliminar el cobro');
+      });
+    }
+  }
 }
+

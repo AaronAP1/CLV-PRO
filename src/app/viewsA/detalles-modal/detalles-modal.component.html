@@ -1,0 +1,21 @@
+<div id="detallesModal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Detalles del Pago</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Código de Pago:</strong> {{ cobro.codigopago }}</p>
+        <p><strong>Recibo:</strong> {{ cobro.recibo }}</p>
+        <p><strong>Descripción del Recibo:</strong> {{ cobro.descripcionrecibo }}</p>
+        <p><strong>Pagado:</strong> {{ cobro.pagado }}</p>
+        <p><strong>Fecha de Pago:</strong> {{ cobro.fechapago }}</p>
+        <p><strong>Forma de Pago:</strong> {{ cobro.formapago }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

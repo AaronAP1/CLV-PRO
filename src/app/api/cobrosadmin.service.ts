@@ -6,11 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CobrosAdminService {
-  private apiUrl = 'https://clvproject-production.up.railway.app/api/v1/cobros/listar';
+  private apiUrl = 'https://clvproject-production.up.railway.app/api/v1/cobros';
 
   constructor(private http: HttpClient) { }
 
   getClientes(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(`${this.apiUrl}/listar`);
+  }
+
+  eliminarCobro(idcobros:number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/borrar/${idcobros}`);
   }
 }
