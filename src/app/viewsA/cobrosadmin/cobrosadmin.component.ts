@@ -62,7 +62,7 @@ export class CobrosadminComponent implements OnInit {
   }
   eliminarCobro(cobro: any): void {
     if (confirm(`¿Estás seguro de que deseas eliminar el cobro con código ${cobro.codigopago}?`)) {
-      this.cobrosadminservice.eliminarCobro(cobro.id).subscribe(() => {
+      this.cobrosadminservice.eliminarCobro(cobro.idcobros).subscribe(() => {
         // Eliminar el cobro del array y actualizar la tabla
         this.cobrosadmin = this.cobrosadmin.filter(item => item.idcobros !== cobro.idcobros);
         alert('Cobro eliminado con éxito');

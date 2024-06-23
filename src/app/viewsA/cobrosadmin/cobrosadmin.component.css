@@ -1,0 +1,44 @@
+#oscuro {
+
+}
+
+
+.form-inline .form-input {
+  display: flex;
+  align-items: center;
+  background: transparent; /* Transparente y sin bordes */
+  border-radius: 36px;  /* Bordes redondeados */
+  overflow: hidden;  /* Mantiene todo dentro del borde redondeado */
+}
+
+.form-inline .form-input input {
+  flex-grow: 1;
+  padding: 0 5px;  /* Espacio interno alrededor del texto */
+  height: 36px;
+  border: none;
+  background: transparent; /* Fondo transparente */
+  outline: none;
+  width: 100%;
+  color: black; /* Color del texto */
+  font-size: 14px;
+}
+
+.form-inline .form-input input::placeholder {
+  color: black;/* Color del placeholder */
+  opacity: 1; /* Asegura que el color del placeholder no esté semi-transparente */
+}
+
+.form-inline .form-input button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent; /* Fondo transparente */
+  color: green; /* Color del ícono */
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  padding: 0;  /* Sin padding adicional */
+}

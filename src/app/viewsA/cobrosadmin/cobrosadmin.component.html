@@ -1,10 +1,23 @@
 <app-headeradmin></app-headeradmin>
 <div class="d-flex">
   <app-sidebaradmin class="col-2"></app-sidebaradmin>
-  <div class="container mt-5">
-    <h2 class="mt-2">Cobros Generales</h2>
+  <div class="container mt-5" id="oscuro">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2 class="mt-2">COBROS GENERALES</h2>
+      <button class="text-light rounded border-0 ms-1 boton ms-auto" style="background-color: green; width: 15rem; height: 2rem;">
+        <i class='bx bx-plus-circle'></i> Nuevo
+      </button>
+    </div>
     <div class="border mb-3"></div>
     <div class="blanco mt-4 p-3 bg-white rounded-4 shadow">
+      <div class="col-xxl-3 col-xl-3 col-md-12 " >
+        <form action="#" class="form-inline">
+          <div class="form-input">
+            <button type="button " class="search-btn"><i class='bx bx-search'></i></button>
+            <input type="search" placeholder="Intenta Buscar algo por aquí . . ." />
+          </div>
+        </form>
+      </div>
       <div class="table-responsive">
         <table id="miTabla" class="table table-bordered text-center mt-2">
           <thead class="table-secondary">
@@ -21,7 +34,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let cobro of cobrosPaginados; let i = index">
-              <td>{{ i + 1 }}</td>
+              <td>{{ cobro.idcobros }}</td>
               <td>{{ cobro.codigopago }}</td>
               <td>{{ cobro.recibo }}</td>
               <td>{{ cobro.descripcionrecibo }}</td>

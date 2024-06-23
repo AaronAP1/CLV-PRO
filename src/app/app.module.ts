@@ -30,6 +30,7 @@ import { RecaudacionesadminComponent } from './viewsA/recaudacionesadmin/recauda
 import { EditarusuarioComponent } from './viewsA/editarusuario/editarusuario.component';
 import { DetallesModalComponent } from './viewsA/detalles-modal/detalles-modal.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,7 @@ import { DetallesModalComponent } from './viewsA/detalles-modal/detalles-modal.c
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
