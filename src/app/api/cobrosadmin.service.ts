@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CobrosAdminService {
-  private apiUrl = 'https://clvproject-production.up.railway.app/api/v1/cobros';
+  private apiUrl = 'http://localhost:8090/api/v1/cobros';
 
   constructor(private http: HttpClient) { }
 
@@ -16,5 +16,9 @@ export class CobrosAdminService {
 
   eliminarCobro(idcobros:number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/borrar/${idcobros}`);
+  }
+
+  crearCobro(cobro: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/crear`, cobro);
   }
 }

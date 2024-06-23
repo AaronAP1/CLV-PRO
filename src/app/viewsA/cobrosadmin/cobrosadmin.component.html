@@ -4,17 +4,17 @@
   <div class="container mt-5" id="oscuro">
     <div class="d-flex justify-content-between align-items-center">
       <h2 class="mt-2">COBROS GENERALES</h2>
-      <button class="text-light rounded border-0 ms-1 boton ms-auto" style="background-color: green; width: 15rem; height: 2rem;">
+      <button class="text-light rounded border-0 ms-1 boton ms-auto" style="background-color: green; width: 15rem; height: 2rem;" (click)="openCrearModal()">
         <i class='bx bx-plus-circle'></i> Nuevo
       </button>
     </div>
     <div class="border mb-3"></div>
     <div class="blanco mt-4 p-3 bg-white rounded-4 shadow">
-      <div class="col-xxl-3 col-xl-3 col-md-12 " >
+      <div class="col-xxl-3 col-xl-3 col-md-12">
         <form action="#" class="form-inline">
           <div class="form-input">
-            <button type="button " class="search-btn"><i class='bx bx-search'></i></button>
-            <input type="search" placeholder="Intenta Buscar algo por aquí . . ." />
+            <button type="button" class="search-btn"><i class='bx bx-search'></i></button>
+            <input type="search" placeholder="Busqueda..." [(ngModel)]="filtro" name="filtro" />
           </div>
         </form>
       </div>
@@ -33,8 +33,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let cobro of cobrosPaginados; let i = index">
-              <td>{{ cobro.idcobros }}</td>
+            <tr *ngFor="let cobro of cobrosPaginadosFiltrados; let i = index">
+              <td>{{ i + 1 }}</td>
               <td>{{ cobro.codigopago }}</td>
               <td>{{ cobro.recibo }}</td>
               <td>{{ cobro.descripcionrecibo }}</td>
@@ -96,6 +96,46 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="crearModal" tabindex="-1" aria-labelledby="crearModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="crearModalLabel">Crear Nuevo Cobro</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="crearCobro()">
+          <div class="mb-3">
+            <label for="codigopago" class="form-label">Código de Pago</label>
+            <input type="text" class="form-control" id="codigopago" [(ngModel)]="nuevoCobro.codigopago" name="codigopago" required>
+          </div>
+          <div class="mb-3">
+            <label for="recibo" class="form-label">Recibo</label>
+            <input type="text" class="form-control" id="recibo" [(ngModel)]="nuevoCobro.recibo" name="recibo" required>
+          </div>
+          <div class="mb-3">
+            <label for="descripcionrecibo" class="form-label">Descripción del Recibo</label>
+            <input type="text" class="form-control" id="descripcionrecibo" [(ngModel)]="nuevoCobro.descripcionrecibo" name="descripcionrecibo" required>
+          </div>
+          <div class="mb-3">
+            <label for="pagado" class="form-label">Pagado</label>
+            <input type="text" class="form-control" id="pagado" [(ngModel)]="nuevoCobro.pagado" name="pagado" required>
+          </div>
+          <div class="mb-3">
+            <label for="fechapago" class="form-label">Fecha de Pago</label>
+            <input type="date" class="form-control" id="fechapago" [(ngModel)]="nuevoCobro.fechapago" name="fechapago" required>
+          </div>
+          <div class="mb-3">
+            <label for="formapago" class="form-label">Forma de Pago</label>
+            <input type="text" class="form-control" id="formapago" [(ngModel)]="nuevoCobro.formapago" name="formapago" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
       </div>
     </div>
   </div>
