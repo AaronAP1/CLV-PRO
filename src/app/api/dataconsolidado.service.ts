@@ -6,11 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataConsolidada {
-  private apiUrl = 'https://clvproject-production.up.railway.app/api/v1/cliente/listar';
+  private apiUrl = 'https://clvproject-production.up.railway.app/api/v1/cliente';
 
   constructor(private http: HttpClient) { }
 
   getClientes(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(`${this.apiUrl}/listar`);
+  }
+
+  EliminarCliente(idcliente: number): Observable<any>{
+    return this.http.delete(`${this.apiUrl}/borrar/${idcliente}`);
+  }
+
+  CrearCliente(cliente: any): Observable<any>{
+    return this.http.post(`${this.apiUrl}/crear`, cliente);
   }
 }
