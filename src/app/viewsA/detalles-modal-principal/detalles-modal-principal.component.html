@@ -1,0 +1,23 @@
+<div id="DetallesModalData" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Detalles del Cliente</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Código de Pago:</strong> {{ cobro.codigopago }}</p>
+        <p><strong>Nombres:</strong> {{ cobro.nombres }}</p>
+        <p><strong>Apellido Paterno:</strong> {{ cobro.apellidopaterno }}</p>
+        <p><strong>Apellido Materno:</strong> {{ cobro.apellidomaterno }}</p>
+        <p><strong>Email:</strong> {{ cobro.email }}</p>
+        <p><strong>Asesor:</strong> {{ cobro.asesor }}</p>
+        <p><strong>Documento:</strong> {{ cobro.doc }}</p>
+        <p><strong>Numero:</strong> {{ cobro.numero }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

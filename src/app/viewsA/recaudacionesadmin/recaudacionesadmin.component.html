@@ -2,9 +2,12 @@
 <div class="d-flex">
     <app-sidebaradmin class="col-2"></app-sidebaradmin>
     <div class="container mt-5">
-        <h2 class="mt-2">
-            Recaudaciones Generales
-        </h2>
+      <div class="d-flex justify-content-between align-items-center">
+        <h2 class="mt-2">RECAUDACIONES TOTALES</h2>
+        <button class="text-light rounded border-0 ms-1 boton ms-auto" style="background-color: green; width: 15rem; height: 2rem;" (click)="OpenCrearModal()">
+          <i class='bx bx-plus-circle'></i> Nuevo
+        </button>
+      </div>
         <div class="border mb-3"></div>
 
         <div class="blanco mt-4 p-3 bg-white rounded-4 shadow">
@@ -36,8 +39,8 @@
                   <td>{{ cobro.estado  }}</td>
 
 
-            <td class="col"><button class="text-light rounded border-0 ms-1 boton " style="background-color: green;">Detalles</button><button
-                    class="text-light rounded border-0 ms-1 boton" style="background-color: #EB2121;">Eliminar</button></td>
+            <td class="col"><button class="text-light rounded border-0 ms-1 boton " style="background-color: green;" (click)="OpenDetalles(cobro)">Detalles</button><button
+                    class="text-light rounded border-0 ms-1 boton" style="background-color: #EB2121;" (click)="EliminarRecaudacion(cobro)">Eliminar</button></td>
                 </tr>
               </tbody>
             </table>
@@ -78,3 +81,72 @@
 
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="detallesModal" tabindex="-1" aria-labelledby="detallesModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detallesModalLabel">Detalles del Pago</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Código de Pago:</strong> {{ RecaudacionesSeleccionado?.codigopago }}</p>
+        <p><strong>Recibido:</strong> {{ RecaudacionesSeleccionado?.recibido }}</p>
+        <p><strong>Descripción:</strong> {{ RecaudacionesSeleccionado?.descripcion }}</p>
+        <p><strong>Importe:</strong> {{ RecaudacionesSeleccionado?.importe }}</p>
+        <p><strong>Vencimiento:</strong> {{ RecaudacionesSeleccionado?.vencimiento }}</p>
+        <p><strong>Vencido:</strong> {{ RecaudacionesSeleccionado?.vencido }}</p>
+        <p><strong>Estado:</strong> {{ RecaudacionesSeleccionado?.estado }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="crearModal" tabindex="-1" aria-labelledby="crearModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="crearModalLabel">Crear Nuevo Cobro</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="crearRecaudacion()">
+          <div class="mb-3">
+            <label for="codigopago" class="form-label">Código de Pago</label>
+            <input type="text" class="form-control" id="codigopago" [(ngModel)]="nuevoRecaudacion.codigopago" name="codigopago" required>
+          </div>
+          <div class="mb-3">
+            <label for="recibo" class="form-label">Recibo</label>
+            <input type="text" class="form-control" id="recibo" [(ngModel)]="nuevoRecaudacion.recibido" name="recibo" required>
+          </div>
+          <div class="mb-3">
+            <label for="descripcionrecibo" class="form-label">Descripción del Recibo</label>
+            <input type="text" class="form-control" id="descripcionrecibo" [(ngModel)]="nuevoRecaudacion.descripcion" name="descripcionrecibo" required>
+          </div>
+          <div class="mb-3">
+            <label for="pagado" class="form-label">Pagado</label>
+            <input type="text" class="form-control" id="pagado" [(ngModel)]="nuevoRecaudacion.importe" name="pagado" required>
+          </div>
+          <div class="mb-3">
+            <label for="fechapago" class="form-label">Fecha de Pago</label>
+            <input type="date" class="form-control" id="fechapago" [(ngModel)]="nuevoRecaudacion.vencimiento" name="fechapago" required>
+          </div>
+          <div class="mb-3">
+            <label for="formapago" class="form-label">Forma de Pago</label>
+            <input type="text" class="form-control" id="formapago" [(ngModel)]="nuevoRecaudacion.vencido" name="formapago" required>
+          </div>
+          <div class="mb-3">
+            <label for="formapago" class="form-label">Forma de Pago</label>
+            <input type="text" class="form-control" id="formapago" [(ngModel)]="nuevoRecaudacion.estado" name="formapago" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -30,6 +30,8 @@ import { RecaudacionesadminComponent } from './viewsA/recaudacionesadmin/recauda
 import { EditarusuarioComponent } from './viewsA/editarusuario/editarusuario.component';
 import { DetallesModalComponent } from './viewsA/detalles-modal/detalles-modal.component';
 import { CrearModalCobrosComponent } from './viewsA/crear-modal-cobros/crear-modal-cobros.component';
+import { DetallesModalRecaudacionesComponent } from './viewsA/detalles-modal-recaudaciones/detalles-modal-recaudaciones.component';
+import { DetallesModalPrincipalComponent } from './viewsA/detalles-modal-principal/detalles-modal-principal.component';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import { CrearModalCobrosComponent } from './viewsA/crear-modal-cobros/crear-mod
     RecaudacionesadminComponent,
     EditarusuarioComponent,
     DetallesModalComponent,
-    CrearModalCobrosComponent
+    CrearModalCobrosComponent,
+    DetallesModalRecaudacionesComponent,
+    DetallesModalPrincipalComponent
   ],
   imports: [
     BrowserModule,
