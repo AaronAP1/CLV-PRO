@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CobrosAdminService {
-  private apiUrl = 'http://localhost:8090/api/v1/cobros';
+  private apiUrl = 'https://clvproject-production.up.railway.app/api/v1/cobros';
 
   constructor(private http: HttpClient) { }
 
