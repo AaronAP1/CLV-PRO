@@ -6,7 +6,7 @@
   font-family: Arial, sans-serif;
 }
 .card-header {
-  background-color: #3b5998; /* Color de Facebook */
+  background-color: #3b5998;
   color: white;
   padding: 20px 0;
 }
@@ -32,4 +32,8 @@
 }
 .text-body-secondary {
   color: gray;
+}
+
+.green-border-left {
+  border-left: 5px solid green;
 }
