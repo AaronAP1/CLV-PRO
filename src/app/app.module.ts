@@ -32,6 +32,7 @@ import { DetallesModalComponent } from './viewsA/detalles-modal/detalles-modal.c
 import { CrearModalCobrosComponent } from './viewsA/crear-modal-cobros/crear-modal-cobros.component';
 import { DetallesModalRecaudacionesComponent } from './viewsA/detalles-modal-recaudaciones/detalles-modal-recaudaciones.component';
 import { DetallesModalPrincipalComponent } from './viewsA/detalles-modal-principal/detalles-modal-principal.component';
+import { BusquedaADMINComponent } from './viewsA/busqueda-admin/busqueda-admin.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { DetallesModalPrincipalComponent } from './viewsA/detalles-modal-princip
     DetallesModalComponent,
     CrearModalCobrosComponent,
     DetallesModalRecaudacionesComponent,
-    DetallesModalPrincipalComponent
+    DetallesModalPrincipalComponent,
+    BusquedaADMINComponent
   ],
   imports: [
     BrowserModule,

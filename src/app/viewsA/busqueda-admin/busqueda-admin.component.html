@@ -1,0 +1,214 @@
+<body>
+  <nav class="navbar">
+    <div>
+      <img
+      src="assets/img/logo_empresa.png"
+       alt="Logo" class="logo">
+    </div>
+    <div class="search-containers">
+      <input type="text" class="search-input" id="CODIGO_DE_PAGO" placeholder="Codigo de Pago">
+      <button (click)="buscarDatos()">Buscar Datos</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="card-body">
+      <form>
+        <div class="form-group form-columns">
+          <div class="form-column">
+            <legend style="color: black; font-weight: bold;">Datos de la Cuenta</legend>
+
+            <label for="ASESOR" style="color: black; margin-top: 10px;">Asesor:</label>
+            <input type="text" class="form-control" id="ASESOR" name="ASESOR" [(ngModel)]="data.ASESOR">
+
+            <label for="MZLTS" style="color: black; margin-top: 10px;">MZLTS:</label>
+            <input type="text" class="form-control" id="MZLTS" name="MZLTS" [(ngModel)]="data.MZLTS">
+
+            <label for="CAPTACION" style="color: black; margin-top: 10px;">Captación:</label>
+            <input type="text" class="form-control" id="CAPTACION" name="CAPTACION" [(ngModel)]="data.CAPTACION">
+
+            <!-- Aquí continúa con el resto de los campos -->
+          </div>
+          <div class="form-column" style="margin-left: 20px;">
+            <label for="NUMERO" style="color: black; margin-top: 29px;">Numero:</label>
+            <input type="text" class="form-control" id="NUMERO" name="NUMERO" [(ngModel)]="data.NUMERO">
+
+            <label for="DIRECCION" style="color: black; margin-top: 10px;">Dirección:</label>
+            <input type="text" class="form-control" id="DIRECCION" name="DIRECCION" [(ngModel)]="data.DIRECCION">
+
+            <!-- Aquí continúa con el resto de los campos -->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="tables-container">
+
+
+    <div class="container2" id="cobrosTable">
+      <div>
+        <h2>Cronograma de Pagos</h2>
+      </div>
+      <table class="">
+        <thead>
+          <tr>
+            <th>Recibo</th>
+            <th>Descripción recibo</th>
+            <th>Importe</th>
+            <th>Vencimiento</th>
+            <th>Estado</th>
+            <th>Vencido</th>
+          </tr>
+        </thead>
+        <tbody style="color: black;">
+          <!-- Aquí se agregarán dinámicamente las filas de la tabla -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container2" id="reciboTable">
+      <div>
+        <h2>Pagos Realizados</h2>
+      </div>
+      <table class="">
+        <thead>
+          <tr>
+            <th>Recibo</th>
+            <th>Descripción recibo</th>
+            <th>Pagado</th>
+            <th>Fecha de Pago</th>
+            <th>Forma Pago</th>
+          </tr>
+        </thead>
+        <tbody style="color: black;">
+          <!-- Aquí se agregarán dinámicamente las filas de la tabla -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!--<a href="{% url 'descargar' %}">Descargar PDF</a>-->
+
+  <br><br><br><br><br><br>
+
+  <footer>
+    <div class="containerflo">
+      <p>&copy; 2024 Constructora la Venta | Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+
+
+  <script>  //Script de RECAUDACIONES
+    function buscarDatos2() {
+      // Obtén el valor del input de búsqueda
+      const CODIGO_DE_PAGO = document.getElementById("CODIGO_DE_PAGO").value;
+
+      // Construye la URL de la API (reemplaza la URL de ejemplo con la URL real de tu API)
+      const apiUrl = `https://apiclvdjango.onrender.com/consultarecau/` + CODIGO_DE_PAGO;
+
+      // Realiza la solicitud a la API usando fetch
+      fetch(apiUrl)
+        .then(response => response.json()) // Parsea la respuesta a JSON
+        .then(data => {
+          console.log('Datos de la API RECAUDACIONES:', data); // Agrega este console.log
+          // Manipula los datos de la respuesta y actualiza la tabla
+          actualizarTabla(data);
+
+          // Actualiza los campos en el HTML antes de la generación del PDF
+          if (Array.isArray(data) && data.length > 0) {
+            const dataItem = data[0];
+
+            for (const key in dataItem) {
+              if (dataItem.hasOwnProperty(key)) {
+                const inputElement = document.getElementById(key);
+                if (inputElement) {
+                  inputElement.value = dataItem[key] || '';
+                }
+              }
+            }
+          }
+        })
+        .catch(error => {
+          console.error('Error al realizar la solicitud a la API:', error);
+        });
+    }
+
+    function actualizarTabla(data) {
+      // Obtén la referencia a la tabla
+      const tabla = document.querySelector("#reciboTable table tbody");
+
+      // Limpia el contenido actual de la tabla
+      tabla.innerHTML = '';
+
+      // Verifica si los datos son un array y si hay al menos un elemento
+      if (Array.isArray(data) && data.length > 0) {
+        // Itera sobre los datos y crea filas para la tabla
+        data.forEach(item => {
+          const fila = document.createElement("tr");
+          fila.innerHTML = `
+          <td>${item.cobro_numero_recibo}</td>
+          <td>${item.cobro_descripcion}</td>
+          <td>${item.cobro_importe}</td>
+          <td>${item.cobro_fecha_vencimiento}</td>
+          <td>${item.cobro_forma_pago}</td>
+        `;
+          tabla.appendChild(fila);
+        });
+      } else {
+        console.log('No se encontraron datos para el código de pago especificado.');
+      }
+    }
+  </script>
+
+  <script>  //Script de COBROS
+    function buscarDatos3() {
+      // Obtén el valor del input de búsqueda
+      const CODIGO_DE_PAGO = document.getElementById("CODIGO_DE_PAGO").value;
+
+      // Construye la URL de la API (reemplaza la URL de ejemplo con la URL real de tu API)
+      const apiUrl = `https://apiclvdjango.onrender.com/consultacobros/` + CODIGO_DE_PAGO;
+
+      // Realiza la solicitud a la API usando fetch
+      fetch(apiUrl)
+        .then(response => response.json()) // Parsea la respuesta a JSON
+        .then(data => {
+          console.log('Datos de la API COBROS:', data); // Agrega este console.log
+          // Manipula los datos de la respuesta y actualiza la tabla
+          actualizarTabla2(data);
+        })
+        .catch(error => {
+          console.error('Error al realizar la solicitud a la API:', error);
+        });
+    }
+
+    function actualizarTabla2(data) {
+      // Obtén la referencia a la tabla
+      const tabla = document.querySelector("#cobrosTable table tbody");
+
+      // Limpia el contenido actual de la tabla
+      tabla.innerHTML = '';
+
+      // Verifica si los datos son un array y si hay al menos un elemento
+      if (Array.isArray(data) && data.length > 0) {
+        // Itera sobre los datos y crea filas para la tabla
+        data.forEach(item => {
+          const fila = document.createElement("tr");
+          fila.innerHTML = `
+        <td>${item.c_numero_recibo}</td>
+        <td>${item.c_descripcion}</td>
+        <td>${item.c_importe}</td>
+        <td>${item.c_fecha_vencimiento}</td>
+        <td>${item.c_indicador_mora}</td>
+        <td>${item.c_observaciones}</td>
+      `;
+          tabla.appendChild(fila);
+        });
+      } else {
+        console.log('No se encontraron datos para el código de pago especificado.');
+      }
+    }
+  </script>
+
+</body>

@@ -16,6 +16,7 @@ import { RecaudacionesadminComponent } from './viewsA/recaudacionesadmin/recauda
 import { CobrosadminComponent } from './viewsA/cobrosadmin/cobrosadmin.component';
 import { EditarusuarioComponent } from './viewsA/editarusuario/editarusuario.component';
 import { DataprincipalComponent } from './viewsA/dataprincipal/dataprincipal.component';
+import { BusquedaADMINComponent } from './viewsA/busqueda-admin/busqueda-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'recaudaciones', component: RecaudacionesadminComponent, canActivate: [AuthGuard]},
   { path: 'cobros', component: CobrosadminComponent, canActivate: [AuthGuard]},
   { path: 'editarusuario', component: EditarusuarioComponent, canActivate: [AuthGuard]},
-  { path: 'dataprincipal', component: DataprincipalComponent, canActivate: [AuthGuard]}
+  { path: 'dataprincipal', component: DataprincipalComponent, canActivate: [AuthGuard]},
+  { path: 'busquedapriv', component: BusquedaADMINComponent},
 
 ];
 
